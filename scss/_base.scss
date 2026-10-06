@@ -1,0 +1,85 @@
+@use "variables" as *;
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  font-family: $font-family-base;
+  font-size: $font-size-base;
+  color: $color-text;
+  background-color: $color-background;
+  // Room for sticky mobile CTA
+  padding-bottom: $sticky-cta-height;
+
+  @media (min-width: $bp-md) {
+    padding-bottom: 0;
+  }
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: $font-family-heading;
+  line-height: $line-height-heading;
+  font-weight: 700;
+  color: $color-text;
+  letter-spacing: -0.02em;
+}
+
+h1 {
+  font-size: clamp(1.75rem, 5vw, 2.75rem);
+}
+
+h2 {
+  font-size: clamp(1.5rem, 3.5vw, 2rem);
+}
+
+h3 {
+  font-size: clamp(1.125rem, 2.5vw, 1.25rem);
+  letter-spacing: -0.01em;
+}
+
+p {
+  color: $color-text-muted;
+  max-width: 38rem;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+summary:focus-visible {
+  outline: 2px solid $color-focus;
+  outline-offset: 2px;
+}
+
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: $gutter;
+  z-index: 1000;
+  padding: 0.5rem 1rem;
+  background: $color-primary;
+  color: $color-text-light;
+  border-radius: $button-radius;
+  font-weight: 600;
+
+  &:focus {
+    top: $gutter;
+  }
+}

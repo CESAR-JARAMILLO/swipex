@@ -1,0 +1,13 @@
+{
+  "name": "swipex",
+  "version": "1.0.0",
+  "description": "Lead-generation landing page for payment-processing cost savings",
+  "private": true,
+  "scripts": {
+    "dev": "sass --watch scss/styles.scss:css/styles.css --style=expanded",
+    "build": "sass scss/styles.scss:css/styles.css --style=compressed --no-source-map"
+  },
+  "devDependencies": {
+    "sass": "^1.80.0"
+  }
+}

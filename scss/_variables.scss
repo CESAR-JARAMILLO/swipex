@@ -1,0 +1,83 @@
+// ============================================================
+// Brand — from provided colors #01a0aa (teal) and #9bca3b (green)
+// Primary = teal (trust / CTAs). Secondary = green (accent / savings).
+// Raw teal #01a0aa is ~3.18:1 on white — too low for AA button text.
+// CTA fills use darkened primary variants that preserve brand hue.
+// ============================================================
+
+// Primary (teal family)
+$color-primary: #01808a;          // AA CTA fill (~4.7:1 on white)
+$color-primary-hover: #016d75;    // ~6.1:1 on white
+$color-primary-active: #015f66;   // pressed state
+$color-primary-dark: #014e54;     // strong text/icons on light surfaces
+$color-primary-light: #e6f5f6;    // tinted section / card accents
+$color-brand-teal: #01a0aa;       // raw brand — accents, icons (not body text)
+
+// Secondary (green family) — accent only; never white text on raw green
+$color-secondary: #9bca3b;        // raw brand green — accents, badges
+$color-secondary-hover: #8ab832;
+$color-secondary-dark: #5c8019;   // ~4.6:1 on white — text/icons when needed
+$color-secondary-light: #f3f9e8;  // soft success / savings tint
+
+// Neutrals — cool-gray with a faint teal cast (not pure gray, not minty)
+$color-background: #f4f7f8;
+$color-background-alt: #eaf3f4;   // alternate section / soft brand tint
+$color-surface: #ffffff;
+$color-surface-elevated: #ffffff;
+
+$color-text: #142428;             // near-ink, slight teal undertone
+$color-text-muted: #4f5c63;       // ~7:1+ on white / light backgrounds
+$color-text-light: #ffffff;
+
+$color-border: #d5dee0;
+$color-border-strong: #b4c2c5;
+
+// Ink (dark bands — footer, booking CTA). Not a brand color.
+$color-ink: #142428;
+$color-ink-muted: rgba(255, 255, 255, 0.78);
+
+// States
+$color-success: $color-secondary-dark;
+$color-error: #b42318;
+$color-focus: $color-primary;
+$color-warning: #9a6700;
+
+// Typography — system stack (performance); no web fonts yet
+$font-family-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+$font-family-heading: $font-family-base;
+
+$font-size-base: 1rem;
+$line-height-base: 1.6;
+$line-height-heading: 1.2;
+
+// Layout
+$container-width: 70rem;
+$section-spacing: 4.25rem;
+$section-spacing-mobile: 2.75rem;
+$gutter: 1.25rem;
+
+// Radii — restrained, professional
+$border-radius-sm: 0.25rem;
+$border-radius: 0.5rem;
+$border-radius-lg: 0.75rem;
+
+// Buttons
+$button-radius: 0.375rem;
+$button-padding-y: 0.875rem;
+$button-padding-x: 1.5rem;
+
+// Shadows — soft, not floaty
+$shadow-sm: 0 1px 2px rgba(20, 36, 40, 0.06);
+$shadow-md: 0 4px 14px rgba(20, 36, 40, 0.08);
+
+// Breakpoints
+$bp-sm: 36rem;
+$bp-md: 48rem;
+$bp-lg: 64rem;
+
+// Header / sticky CTA
+$header-height: 4rem;
+$sticky-cta-height: 4rem;
+
+// Transitions
+$transition-fast: 150ms ease;

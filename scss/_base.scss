@@ -23,8 +23,8 @@ body {
   font-size: $font-size-base;
   color: $color-text;
   background-color: $color-background;
-  // Room for sticky mobile CTA
-  padding-bottom: $sticky-cta-height;
+  // Room for sticky mobile CTA, including the home-indicator inset
+  padding-bottom: calc(#{$sticky-cta-height} + env(safe-area-inset-bottom, 0px));
 
   @media (min-width: $bp-md) {
     padding-bottom: 0;

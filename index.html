@@ -191,42 +191,38 @@
     <!-- 2. PROBLEM / COST OF PROCESSING -->
     <section class="section section--alt" id="problem" aria-labelledby="problem-heading">
       <div class="container">
-        <div class="section__header">
-          <h2 id="problem-heading">Processing Fees Add Up Faster Than Most Owners Expect</h2>
-          <p>
-            For San Bernardino restaurants, shops, salons, auto shops, and service businesses,
-            even a small rate difference adds up across every card sale.
-            The numbers below are example placeholders, not a promise about your business.
+        <div class="cost-example">
+          <div class="section__header">
+            <h2 id="problem-heading">Processing Fees Add Up Faster Than Most Owners Expect</h2>
+            <p>
+              Take a San Bernardino shop doing about $50,000 a month in card sales,
+              at a 2.9% effective rate.
+            </p>
+          </div>
+
+          <div class="cost-example__result">
+            <p class="cost-example__math">
+              <span>$50,000</span>
+              <span class="cost-example__op" aria-hidden="true">×</span>
+              <span class="sr-only"> times </span>
+              <span>2.9%</span>
+              <span class="cost-example__op" aria-hidden="true">=</span>
+              <span class="sr-only"> equals </span>
+              <span>$1,450 a month</span>
+            </p>
+            <p class="cost-example__annual-label">Annual processing cost in this example</p>
+            <p class="cost-example__annual">$17,400</p>
+          </div>
+
+          <p class="cost-example__note">
+            These are sample figures, not a quote. Your cost depends on volume,
+            card mix, pricing model, and processor terms.
           </p>
-        </div>
 
-        <div class="stat-grid">
-          <div class="stat-card">
-            <span class="stat-card__label">Monthly card volume</span>
-            <span class="stat-card__value">$50,000</span>
-            <span class="stat-card__note">Placeholder example</span>
-          </div>
-          <div class="stat-card">
-            <span class="stat-card__label">Effective processing rate</span>
-            <span class="stat-card__value">2.9%</span>
-            <span class="stat-card__note">Placeholder example</span>
-          </div>
-          <div class="stat-card">
-            <span class="stat-card__label">Monthly processing cost</span>
-            <span class="stat-card__value">$1,450</span>
-            <span class="stat-card__note">Volume × rate (example)</span>
-          </div>
-          <div class="stat-card stat-card--emphasis">
-            <span class="stat-card__label">Annual processing cost</span>
-            <span class="stat-card__value">$17,400</span>
-            <span class="stat-card__note">Monthly × 12 (example)</span>
-          </div>
+          <a class="btn btn--primary cost-example__action" href="#savings">
+            Use my own numbers
+          </a>
         </div>
-
-        <p class="mt-3">
-          Your actual costs depend on volume, card mix, pricing model, and processor terms.
-          Use the calculator below with your own numbers.
-        </p>
       </div>
     </section>
 
@@ -236,70 +232,82 @@
         <div class="section__header section__header--center">
           <h2 id="savings-heading">See What Processing May Be Costing You</h2>
           <p>
-            Enter your approximate monthly card sales and current effective rate.
-            Results are estimates only. They are not a quote or a guarantee of savings.
+            Enter your approximate monthly card sales and your effective rate, if you know it.
           </p>
         </div>
 
         <div class="calculator" data-calculator>
+          <div class="calculator__results">
+            <p class="calculator__sample" data-calc-sample>
+              These match the example. Change either number.
+            </p>
+            <p class="calculator__math">
+              <span data-calc-output="salesDisplay">$50,000</span>
+              <span class="calculator__op" aria-hidden="true">×</span>
+              <span class="sr-only"> times </span>
+              <span data-calc-output="rateDisplay">2.9%</span>
+              <span class="calculator__op" aria-hidden="true">=</span>
+              <span class="sr-only"> equals </span>
+              <span class="calculator__month"><span data-calc-output="monthlyExpense">$1,450</span> a month</span>
+            </p>
+            <p class="calculator__annual-label" data-calc-annual-label>
+              Annual processing cost in this example
+            </p>
+            <p class="calculator__annual" data-calc-output="annualExpense">$17,400</p>
+            <p class="calculator__disclaimer">
+              Estimate only. Not a quote. Does not include card mix, interchange, or monthly fees.
+            </p>
+            <div class="calculator__cta">
+              <a class="btn btn--primary btn--full" href="#book">
+                Review My Processing Costs
+              </a>
+              <p class="calculator__next">
+                We'll look at a recent statement. There's no pressure to switch.
+              </p>
+            </div>
+          </div>
+
           <div class="calculator__fields">
             <div class="form-field">
               <label class="form-field__label" for="monthly-sales">
-                Monthly card sales ($)
+                Monthly card sales
               </label>
-              <input
-                class="form-field__input"
-                type="number"
-                id="monthly-sales"
-                name="monthly-sales"
-                inputmode="decimal"
-                min="0"
-                step="100"
-                value="50000"
-                data-calc-input="monthlySales"
-                autocomplete="off"
-              >
+              <div class="form-field__control">
+                <span class="form-field__affix" aria-hidden="true">$</span>
+                <input
+                  class="form-field__input"
+                  type="text"
+                  id="monthly-sales"
+                  name="monthly-sales"
+                  inputmode="decimal"
+                  value="50,000"
+                  data-calc-input="monthlySales"
+                  autocomplete="off"
+                >
+              </div>
               <span class="form-field__hint">Rough total card volume per month</span>
             </div>
 
             <div class="form-field">
               <label class="form-field__label" for="processing-rate">
-                Current processing rate (%)
+                Current processing rate
               </label>
-              <input
-                class="form-field__input"
-                type="number"
-                id="processing-rate"
-                name="processing-rate"
-                inputmode="decimal"
-                min="0"
-                max="100"
-                step="0.01"
-                value="2.9"
-                data-calc-input="processingRate"
-                autocomplete="off"
-              >
-              <span class="form-field__hint">Your effective rate from a recent statement, if you know it</span>
-            </div>
-          </div>
-
-          <div class="calculator__results">
-            <div class="calculator__result">
-              <span class="calculator__result-label">Estimated monthly processing expense</span>
-              <span class="calculator__result-value" data-calc-output="monthlyExpense">$1,450</span>
-            </div>
-            <div class="calculator__result calculator__result--highlight">
-              <span class="calculator__result-label">Estimated annual processing expense</span>
-              <span class="calculator__result-value" data-calc-output="annualExpense">$17,400</span>
-            </div>
-            <p class="calculator__disclaimer">
-              Estimate only. Does not include card mix, interchange, monthly fees,
-              or other factors. Not a savings guarantee.
-            </p>
-            <div class="calculator__cta">
-              <a class="btn btn--primary btn--full" href="#book">
-                Get My Savings Analysis
-              </a>
+              <div class="form-field__control">
+                <input
+                  class="form-field__input"
+                  type="text"
+                  id="processing-rate"
+                  name="processing-rate"
+                  inputmode="decimal"
+                  value="2.9"
+                  data-calc-input="processingRate"
+                  autocomplete="off"
+                >
+                <span class="form-field__affix" aria-hidden="true">%</span>
+              </div>
+              <span class="form-field__hint">
+                If you don't know your rate, a recent statement is enough. You can still book the review.
+              </span>
             </div>
           </div>
         </div>
@@ -310,43 +318,41 @@
     <section class="section section--alt" id="how-it-works" aria-labelledby="how-heading">
       <div class="container">
         <div class="section__header section__header--center">
-          <h2 id="how-heading">How It Works</h2>
-          <p>A clear process based on your current processing, not a one-size-fits-all pitch.</p>
+          <h2 id="how-heading">What the Review Looks Like</h2>
+          <p>Bring a recent statement. We go through your rates, fees, and volume together.</p>
         </div>
 
         <ol class="steps">
           <li class="step">
-            <span class="step__number" aria-hidden="true">1</span>
-            <h3 class="step__title">Review your current processing</h3>
+            <h3 class="step__title">Review your statement</h3>
             <p class="step__text">
               Share a recent statement so we can see your rates, fees, and volume.
             </p>
           </li>
           <li class="step">
-            <span class="step__number" aria-hidden="true">2</span>
-            <h3 class="step__title">Calculate potential savings</h3>
+            <h3 class="step__title">Walk through your numbers</h3>
             <p class="step__text">
-              We'll walk through what you may be able to reduce based on your numbers,
-              not generic averages.
+              We look at what you are paying now, based on your statement, not a generic average.
             </p>
           </li>
           <li class="step">
-            <span class="step__number" aria-hidden="true">3</span>
-            <h3 class="step__title">Choose the right payment setup</h3>
+            <h3 class="step__title">See what fits</h3>
             <p class="step__text">
-              Pick a structure that fits how your business takes payments.
-              <!-- PLACEHOLDER: refine once product options are defined -->
+              If a different setup fits how you take cards, we explain it. If it does not, we say so.
             </p>
           </li>
           <li class="step">
-            <span class="step__number" aria-hidden="true">4</span>
-            <h3 class="step__title">Get set up to process</h3>
+            <h3 class="step__title">Decide if a change is worth it</h3>
             <p class="step__text">
-              We help you get configured so you can keep processing with less hassle.
-              <!-- PLACEHOLDER: confirm timeline and equipment details -->
+              You leave with a clear read of the statement. There is no pressure to switch.
             </p>
           </li>
         </ol>
+
+        <div class="steps__cta">
+          <a class="btn btn--primary" href="#book">Review My Processing Costs</a>
+          <p>Bring a recent statement if you have one.</p>
+        </div>
       </div>
     </section>
 
@@ -356,79 +362,91 @@
         <div class="section__header section__header--center">
           <h2 id="who-heading">For Businesses That Take Cards Every Day</h2>
           <p>
-            SwipeX works with San Bernardino-area merchants who take card payments as
-            a regular part of sales. That includes:
+            If your San Bernardino business takes cards as part of everyday sales, the review starts with your statement. That includes:
           </p>
         </div>
 
         <ul class="biz-grid">
           <li class="biz-card">
-            <span class="biz-card__icon" aria-hidden="true">RS</span>
+            <svg class="biz-card__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M7 3.5v5.5M9.25 3.5v5.5M11.5 3.5v5.5M7 6.5h4.5M9.25 6.5V20.5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M16 3.5c1.7 1.5 2.3 3.6 1 5.4L16 10.5v10" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
             <h3 class="biz-card__title">Restaurants</h3>
           </li>
           <li class="biz-card">
-            <span class="biz-card__icon" aria-hidden="true">SB</span>
+            <svg class="biz-card__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <circle cx="7" cy="7" r="2.25" stroke="currentColor" stroke-width="1.75"/>
+              <circle cx="7" cy="17" r="2.25" stroke="currentColor" stroke-width="1.75"/>
+              <path d="M8.8 8.4 19.5 17.5M8.8 15.6 19.5 6.5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/>
+            </svg>
             <h3 class="biz-card__title">Salons / Barbers</h3>
           </li>
           <li class="biz-card">
-            <span class="biz-card__icon" aria-hidden="true">AU</span>
+            <svg class="biz-card__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M14.8 6.2a3.3 3.3 0 0 0-4.5 4.2L5.2 15.5a1.4 1.4 0 0 0 0 2l1.3 1.3a1.4 1.4 0 0 0 2 0l5.1-5.1a3.3 3.3 0 0 0 4.2-4.5L15.2 12l-3.2-3.2 2.8-2.6z" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
             <h3 class="biz-card__title">Auto Shops</h3>
           </li>
           <li class="biz-card">
-            <span class="biz-card__icon" aria-hidden="true">RT</span>
+            <svg class="biz-card__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M6.5 8.5h11l-.9 11h-9.2l-.9-11z" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round"/>
+              <path d="M9 8.5V7.2a3 3 0 0 1 6 0v1.3" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/>
+            </svg>
             <h3 class="biz-card__title">Retail</h3>
           </li>
           <li class="biz-card">
-            <span class="biz-card__icon" aria-hidden="true">CT</span>
+            <svg class="biz-card__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M3.5 15.5h17" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/>
+              <path d="M6 15.5v-.4a6 6 0 0 1 12 0v.4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/>
+              <path d="M8.5 15.5V17a1.5 1.5 0 0 0 1.5 1.5h4A1.5 1.5 0 0 0 15.5 17v-1.5" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round"/>
+            </svg>
             <h3 class="biz-card__title">Contractors</h3>
           </li>
           <li class="biz-card">
-            <span class="biz-card__icon" aria-hidden="true">MD</span>
+            <svg class="biz-card__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M9.5 4.5h5V9.5h5v5h-5v5h-5v-5h-5v-5h5v-5z" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round"/>
+            </svg>
             <h3 class="biz-card__title">Medical / Dental</h3>
           </li>
           <li class="biz-card">
-            <span class="biz-card__icon" aria-hidden="true">SV</span>
-            <h3 class="biz-card__title">Service Businesses</h3>
+            <svg class="biz-card__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M4 10.5 5.4 5.5h13.2L20 10.5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M4 10.5h16V19H4v-8.5z" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round"/>
+              <path d="M10 19.5v-5h4v5" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round"/>
+            </svg>
+            <h3 class="biz-card__title">Other local services</h3>
           </li>
         </ul>
+        <p class="biz-note">If your type is not listed, you can still book the review.</p>
       </div>
     </section>
 
-    <!-- 6. SOCIAL PROOF (placeholders only) -->
+    <!-- 6. SOCIAL PROOF -->
     <section class="section section--alt" id="proof" aria-labelledby="proof-heading">
       <div class="container">
         <div class="section__header section__header--center">
-          <h2 id="proof-heading">Results From Businesses Like Yours</h2>
-          <p>
-            Verified San Bernardino-area merchant testimonials will appear here once approved.
-            The cards below are placeholders, not real customer results.
-          </p>
+          <h2 id="proof-heading">From Local Merchants</h2>
+          <p>A San Bernardino store, in their own words.</p>
         </div>
 
         <div class="proof-grid">
-          <article class="proof-card">
-            <span class="proof-card__badge">Placeholder testimonial</span>
+          <article class="proof-card proof-card--quote">
             <blockquote class="proof-card__quote">
-              “[Placeholder quote. Replace with a verified customer testimonial once approved.]”
+              <span class="proof-card__mark" aria-hidden="true">“</span>
+              <p>SwipeX changed how we take card payments. We've saved thousands in fees, and support has been there when we needed it.”</p>
             </blockquote>
-            <p class="proof-card__meta">Placeholder Name, Placeholder Industry, San Bernardino, CA</p>
+            <p class="proof-card__meta">Socorrito Store <span class="proof-card__place">San Bernardino, CA</span></p>
           </article>
 
-          <article class="proof-card">
-            <span class="proof-card__badge">Placeholder savings example</span>
-            <p class="proof-card__result">[XX% / $X,XXX]</p>
-            <p class="proof-card__meta">
-              Example savings figure. Replace with verified merchant data.
-              <span class="placeholder-note">Not a real result</span>
-            </p>
+          <article class="proof-card proof-card--template">
+            <p class="proof-card__badge">Temporary template</p>
+            <p class="proof-card__text">This card will be replaced with a verified merchant quote. It is not a customer result.</p>
           </article>
 
-          <article class="proof-card">
-            <span class="proof-card__badge">Placeholder merchant result</span>
-            <blockquote class="proof-card__quote">
-              “[Placeholder merchant outcome. Replace with approved case study details.]”
-            </blockquote>
-            <p class="proof-card__meta">Placeholder Industry, San Bernardino County, CA</p>
+          <article class="proof-card proof-card--template">
+            <p class="proof-card__badge">Temporary template</p>
+            <p class="proof-card__text">This card will be replaced with a verified merchant quote. It is not a customer result.</p>
           </article>
         </div>
       </div>
@@ -438,30 +456,21 @@
     <section class="section section--ink" id="book" aria-labelledby="book-heading">
       <div class="container">
         <div class="cta-block">
-          <h2 id="book-heading">See How Much Your Business Could Save</h2>
-          <p class="cta-block__text">
-            Request a no-obligation processing-cost review. SwipeX will look at your current
-            statement and walk through what may be possible for your San Bernardino-area
-            business. There's no pressure to switch.
-          </p>
+          <h2 id="book-heading">A 30-Minute Look at Your Statement</h2>
+          <p class="cta-block__text">We'll go through your rates, fees, and volume.</p>
+          <ul class="cta-block__facts">
+            <li>30 minutes</li>
+            <li>A recent statement, if you have one</li>
+            <li>No pressure to switch</li>
+          </ul>
           <!--
             BOOKING PROVIDER PLACEHOLDER
-            Replace BOOKING_URL below with Calendly, Cal.com, or another scheduler.
-            Keep the data-booking-url attribute in sync for JS enhancements later.
+            Replace this URL, and the same URL on the final CTA, sticky bar, and footer link.
+            Keep each data-booking-url attribute in sync.
           -->
-          <a
-            class="btn btn--accent btn--lg"
-            href="https://example.com/book"
-            data-booking-url
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Get My Savings Analysis
+          <a class="btn btn--accent btn--lg" href="https://example.com/book" data-booking-url>
+            Review My Processing Costs
           </a>
-          <p class="cta-block__note">
-            Bring a recent processing statement if you have one.
-            <span class="placeholder-note">Confirm call length with business owner</span>
-          </p>
         </div>
       </div>
     </section>
@@ -469,9 +478,9 @@
     <!-- 8. FAQ -->
     <section class="section section--surface" id="faq" aria-labelledby="faq-heading">
       <div class="container">
-        <div class="section__header">
+        <div class="section__header section__header--center">
           <h2 id="faq-heading">Frequently Asked Questions</h2>
-          <p>Answers marked as pending will be filled in once business details are confirmed.</p>
+          <p>A few answers before you book the review.</p>
         </div>
 
         <div class="faq-list">
@@ -481,18 +490,17 @@
               <p>
                 SwipeX helps San Bernardino-area merchants review credit card processing costs
                 and see if a different payment setup could reduce what the business currently
-                absorbs. We usually start with a statement review and savings analysis.
+                absorbs. We usually start with a 30-minute statement review.
               </p>
             </div>
           </details>
 
           <details class="faq-item">
-            <summary class="faq-item__question">How does the program work?</summary>
+            <summary class="faq-item__question">Can you review my current processing statement?</summary>
             <div class="faq-item__answer">
               <p>
-                <span class="placeholder-note">Program details pending verification</span>
-                In short, we review your current processing, look for ways to reduce what you
-                absorb, and help set up a better fit if it makes sense for your business.
+                Yes. Bring a recent statement. The review is 30 minutes, and we use your
+                volume, rates, and fees.
               </p>
             </div>
           </details>
@@ -507,7 +515,6 @@
                 cash-discount setups have extra rules, and advertising rules matter too.
                 This is general information, not legal advice. SwipeX can talk through options
                 that may fit your business during a statement review.
-                <span class="placeholder-note">Confirm exact program model SwipeX offers</span>
               </p>
             </div>
           </details>
@@ -520,66 +527,6 @@
                 A cash discount program usually posts a card price and offers a lower price for
                 cash or other non-credit payments. Merchants use these to offset processing costs.
                 Setup and disclosures must follow card-network and state rules.
-                <span class="placeholder-note">Confirm whether SwipeX offers these programs</span>
-              </p>
-            </div>
-          </details>
-
-          <details class="faq-item">
-            <summary class="faq-item__question">Do I need different equipment?</summary>
-            <div class="faq-item__answer">
-              <p>
-                <span class="placeholder-note">Answer pending: confirm equipment / POS requirements</span>
-              </p>
-            </div>
-          </details>
-
-          <details class="faq-item">
-            <summary class="faq-item__question">Can customers still use major credit cards?</summary>
-            <div class="faq-item__answer">
-              <p>
-                <span class="placeholder-note">Answer pending: confirm accepted card brands</span>
-              </p>
-            </div>
-          </details>
-
-          <details class="faq-item">
-            <summary class="faq-item__question">How long does setup take?</summary>
-            <div class="faq-item__answer">
-              <p>
-                <span class="placeholder-note">Answer pending: confirm typical timeline</span>
-              </p>
-            </div>
-          </details>
-
-          <details class="faq-item">
-            <summary class="faq-item__question">Is there a contract?</summary>
-            <div class="faq-item__answer">
-              <p>
-                <span class="placeholder-note">Answer pending: confirm contract / term details</span>
-              </p>
-            </div>
-          </details>
-
-          <details class="faq-item">
-            <summary class="faq-item__question">What does it cost?</summary>
-            <div class="faq-item__answer">
-              <p>
-                <span class="placeholder-note">Answer pending: do not invent pricing</span>
-                Pricing depends on your business and processing profile. A statement-based
-                savings analysis is the place to review the details.
-              </p>
-            </div>
-          </details>
-
-          <details class="faq-item">
-            <summary class="faq-item__question">Can you review my current processing statement?</summary>
-            <div class="faq-item__answer">
-              <p>
-                Yes. A recent merchant statement is usually the starting point for a SwipeX
-                processing-cost review. That way we work from your actual volume, rates, and
-                fees, not averages.
-                <span class="placeholder-note">Confirm which documents are needed</span>
               </p>
             </div>
           </details>
@@ -591,12 +538,11 @@
     <section class="section section--alt" id="final-cta" aria-labelledby="final-heading">
       <div class="container">
         <div class="cta-block">
-          <h2 id="final-heading">Find Out What Processing Is Really Costing You</h2>
+          <h2 id="final-heading">Ready for the 30-minute review?</h2>
           <p class="cta-block__text">
-            If your business absorbs credit card processing fees every month, it is worth
-            checking whether those costs can be reduced. Start with a savings analysis.
+            We'll go through your rates, fees, and volume. Bring a recent statement if you have one.
           </p>
-          <a class="btn btn--primary btn--lg" href="#book">
+          <a class="btn btn--primary btn--lg" href="https://example.com/book" data-booking-url>
             Review My Processing Costs
           </a>
         </div>
@@ -606,7 +552,7 @@
 
   <!-- Mobile sticky CTA (hidden from md+ via CSS) -->
   <div class="sticky-cta" role="region" aria-label="Quick action">
-    <a class="btn btn--primary" href="#book">Review My Costs</a>
+    <a class="btn btn--primary" href="https://example.com/book" data-booking-url>Review My Costs</a>
   </div>
 
   <footer class="site-footer">
@@ -644,7 +590,7 @@
         <nav class="site-footer__links" aria-label="Footer">
           <a href="/privacy.html">Privacy Policy</a>
           <a href="/terms.html">Terms</a>
-          <a href="#book">Get Savings Analysis</a>
+          <a href="https://example.com/book" data-booking-url>Review My Processing Costs</a>
         </nav>
       </div>
       <p class="site-footer__copy">

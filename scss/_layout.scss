@@ -7,6 +7,7 @@
 
 .section {
   padding-block: $section-spacing-mobile;
+  scroll-margin-top: calc(#{$header-height} + 0.75rem);
 
   @media (min-width: $bp-md) {
     padding-block: $section-spacing;
@@ -157,6 +158,12 @@
   font-weight: 500;
   color: $color-text-muted;
 
+  @media (max-width: ($bp-md - 0.02rem)) {
+    display: flex;
+    align-items: center;
+    min-height: 2.75rem;
+  }
+
   &:hover {
     color: $color-primary-dark;
   }
@@ -203,12 +210,14 @@
 }
 
 .hero__eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  max-width: 22rem;
   font-size: 0.8125rem;
   font-weight: 600;
   letter-spacing: 0.02em;
+  line-height: 1.45;
   text-transform: uppercase;
   color: $color-primary-dark;
 }
@@ -216,6 +225,7 @@
 .hero__eyebrow-dot {
   width: 0.5rem;
   height: 0.5rem;
+  margin-top: 0.35em;
   border-radius: 50%;
   background: $color-secondary;
   flex-shrink: 0;
@@ -233,31 +243,50 @@
 
 .hero__actions {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: stretch;
   gap: 0.75rem;
-  align-items: center;
   margin-top: 0.25rem;
+
+  .btn {
+    width: 100%;
+  }
+
+  @media (min-width: $bp-sm) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+
+    .btn {
+      width: auto;
+    }
+  }
 }
 
+// One reassurance point per row until the hero is wide enough
+// for a single unbroken line. Wrapping into 2 + 1 is harder to scan.
 .hero__trust {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem 1.25rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
   margin: 0;
   padding: 0;
   list-style: none;
-  font-size: 0.875rem;
+  font-size: 0.9375rem;
   color: $color-text-muted;
-  max-width: none;
+  max-width: 22rem;
 }
 
 .hero__trust-item {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
+  display: grid;
+  grid-template-columns: 1rem minmax(0, 1fr);
+  column-gap: 0.5rem;
+  align-items: start;
 
   svg {
-    flex-shrink: 0;
+    width: 1rem;
+    height: 1rem;
+    margin-top: 0.2rem;
     color: $color-secondary-dark;
   }
 }
@@ -272,6 +301,8 @@
   font-size: 0.8125rem;
   font-weight: 600;
   color: $color-text-muted;
+  text-wrap: balance;
+  max-width: 18rem;
 }
 
 // Footer
@@ -318,11 +349,25 @@
 
 .site-footer__links {
   display: flex;
-  flex-wrap: wrap;
-  gap: 1rem 1.5rem;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.25rem;
+
+  a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 2.75rem;
+  }
 
   a:hover {
     color: $color-text-light;
+  }
+
+  @media (min-width: $bp-md) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem 1.5rem;
   }
 }
 
@@ -347,7 +392,7 @@
   justify-content: center;
   gap: 0.75rem;
   min-height: $sticky-cta-height;
-  padding: 0.625rem $gutter;
+  padding: 0.625rem $gutter calc(0.625rem + env(safe-area-inset-bottom, 0px));
   background: $color-surface;
   border-top: 1px solid $color-border;
   box-shadow: 0 -4px 16px rgba(20, 36, 40, 0.08);

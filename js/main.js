@@ -86,10 +86,23 @@
 
     var salesInput = root.querySelector('[data-calc-input="monthlySales"]');
     var rateInput = root.querySelector('[data-calc-input="processingRate"]');
+    var salesOut = root.querySelector('[data-calc-output="salesDisplay"]');
+    var rateOut = root.querySelector('[data-calc-output="rateDisplay"]');
     var monthlyOut = root.querySelector('[data-calc-output="monthlyExpense"]');
     var annualOut = root.querySelector('[data-calc-output="annualExpense"]');
+    var sampleNote = root.querySelector("[data-calc-sample]");
+    var annualLabel = root.querySelector("[data-calc-annual-label]");
 
     if (!salesInput || !rateInput || !monthlyOut || !annualOut) return;
+
+    var edited = false;
+
+    function parseAmount(value) {
+      var cleaned = String(value).replace(/,/g, "").trim();
+      var amount = parseFloat(cleaned);
+      if (!isFinite(amount) || amount < 0) return 0;
+      return amount;
+    }
 
     function formatCurrency(value) {
       return new Intl.NumberFormat("en-US", {
@@ -99,25 +112,63 @@
       }).format(value);
     }
 
-    function recalculate() {
-      var sales = parseFloat(salesInput.value);
-      var rate = parseFloat(rateInput.value);
+    function formatSales(value) {
+      return new Intl.NumberFormat("en-US", {
+        maximumFractionDigits: 0,
+      }).format(value);
+    }
 
-      if (!isFinite(sales) || sales < 0) sales = 0;
-      if (!isFinite(rate) || rate < 0) rate = 0;
+    function formatRate(value) {
+      var rounded = Math.round(value * 100) / 100;
+      return String(rounded);
+    }
+
+    function markEdited() {
+      if (edited) return;
+      edited = true;
+      if (sampleNote) sampleNote.hidden = true;
+      if (annualLabel) {
+        annualLabel.textContent = "Your estimated annual processing cost";
+      }
+    }
+
+    function recalculate() {
+      var sales = parseAmount(salesInput.value);
+      var rate = parseAmount(rateInput.value);
 
       // monthlyExpense = sales * (rate / 100)
       // annualExpense  = monthlyExpense * 12
-      // Additional savings formulas can be added here once business rules are defined.
+      // Savings math stays out until the program model is defined.
       var monthly = sales * (rate / 100);
       var annual = monthly * 12;
 
+      if (salesOut) salesOut.textContent = formatCurrency(sales);
+      if (rateOut) rateOut.textContent = formatRate(rate) + "%";
       monthlyOut.textContent = formatCurrency(monthly);
       annualOut.textContent = formatCurrency(annual);
     }
 
-    salesInput.addEventListener("input", recalculate);
-    rateInput.addEventListener("input", recalculate);
+    salesInput.addEventListener("focus", function () {
+      if (salesInput.value.trim() === "") return;
+      salesInput.value = String(Math.round(parseAmount(salesInput.value)));
+    });
+
+    salesInput.addEventListener("blur", function () {
+      salesInput.value = formatSales(parseAmount(salesInput.value));
+      recalculate();
+    });
+
+    salesInput.addEventListener("input", function () {
+      markEdited();
+      recalculate();
+    });
+
+    rateInput.addEventListener("input", function () {
+      markEdited();
+      recalculate();
+    });
+
+    salesInput.value = formatSales(parseAmount(salesInput.value));
     recalculate();
   }
 

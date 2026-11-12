@@ -791,3 +791,33 @@
   }
 }
 
+.legal {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 38rem;
+
+  h1 {
+    margin-bottom: 0.25rem;
+  }
+
+  h2 {
+    margin-top: 1.25rem;
+    font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+  }
+
+  p {
+    max-width: none;
+  }
+
+  a {
+    color: $color-primary-dark;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  a:hover {
+    color: $color-primary;
+  }
+}
+

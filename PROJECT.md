@@ -2,6 +2,8 @@
 
 Lightweight lead-generation landing page for a payment-processing sales business. Static HTML + SCSS + vanilla JS. Primary goal: convert business owners into booked savings-analysis calls.
 
+Launch execution order lives in `IMPLEMENTATION.md` when that local file is present. See **Implementation Workflow**. This file remains the source of truth without it.
+
 ## Business
 
 **SwipeX** helps business owners reduce the credit-card processing costs their business absorbs by reviewing current merchant statements and evaluating alternative payment-processing setups. Exact legal entity name, processor relationships, and specific program model (e.g., dual pricing / cash discount / interchange-plus): **TBD**.
@@ -26,7 +28,7 @@ Verticals in scope: restaurants, salons/barbers, auto shops, retail, contractors
 
 ## Primary Conversion
 
-**Request a processing-cost / savings analysis** (scheduler TBD — Calendly or Cal.com).
+**Request a processing-cost / savings analysis** on Calendly: `https://calendly.com/vicbarrios24/30min`.
 
 Funnel: land → understand fee cost → watch explainer → see estimated costs → book review.
 
@@ -40,7 +42,7 @@ No competing primary CTAs.
 
 ## Core Value Proposition
 
-SwipeX helps merchants see what processing is really costing them and evaluate whether a different payment setup could reduce what they absorb, based on their statement rather than generic averages. Positioning emphasizes clarity and a no-obligation review. It does not promise zero fees or unsupported savings.
+SwipeX helps merchants see what processing is really costing them and evaluate whether a different payment setup could reduce what they absorb, based on their statement rather than generic averages. Positioning emphasizes clarity and a no-obligation review. “No-obligation” means no duty to switch. It does not mean the review is free. The positioning does not promise zero fees or unsupported savings.
 
 ## Messaging
 
@@ -50,16 +52,13 @@ SwipeX helps merchants see what processing is really costing them and evaluate w
 - Subhead: SwipeX helps San Bernardino merchants review their current processing costs. We look at your statement to see if a different payment setup could reduce what you absorb, instead of giving you a generic sales pitch.
 - Primary CTA: “Review My Processing Costs”
 - Video label: “See how businesses reduce processing costs”
-- Trust: No-obligation statement review · Serving San Bernardino-area merchants · Built around your real numbers
+- Trust: No-obligation statement review · Serving San Bernardino-area merchants · Built around your real numbers. Keep the hero line. “No-obligation” means no duty to switch, not a free review.
 
 **Other CTAs:**
+- Every “Review My Processing Costs” button, and the sticky “Review My Costs” button, opens `https://calendly.com/vicbarrios24/30min` in the same tab. That includes the hero, nav, calculator, how it works, booking band, final CTA, sticky bar, and footer.
 - Problem example: “Use my own numbers” → `#savings` (not a booking offer)
-- Calculator: “Review My Processing Costs” → `#book`
-- How it works: “Review My Processing Costs” → `#book`
-- Booking section: “Review My Processing Costs” opens the scheduler. Heading: “A 30-Minute Look at Your Statement”
-- Sticky mobile: “Review My Costs” opens the scheduler
-- Final H2: “Ready for the 30-minute review?” The button opens the scheduler
-- Footer: “Review My Processing Costs” opens the scheduler
+- Booking section heading: “A 30-Minute Look at Your Statement”
+- Final H2: “Ready for the 30-minute review?”
 
 **Local positioning:** Cost-visibility + statement review for San Bernardino merchants (not “zero fee” positioning).
 
@@ -187,7 +186,7 @@ The yearly figure is the only large number. Do not split the example into equal 
 **Defaults:** $50,000 and 2.9%, matching the worked example. The label stays “Annual processing cost in this example,” with “These match the example. Change either number.” After the owner edits a field, the label becomes “Your estimated annual processing cost.” Do not clear the defaults.  
 **Lead capture:** none in the calculator. The CTA continues to `#book`.  
 **Unknown rate:** “If you don't know your rate, a recent statement is enough. You can still book the review.” Do not require the rate to book.  
-**CTA:** “Review My Processing Costs” → `#book`  
+**CTA:** “Review My Processing Costs” opens `https://calendly.com/vicbarrios24/30min`  
 **Under the button:** “We'll look at a recent statement. There's no pressure to switch.”  
 **Note, once, under the yearly figure:** estimate only, not a quote. Does not include card mix, interchange, or monthly fees.  
 
@@ -203,7 +202,7 @@ Four steps after the calculator. The heading is “What the Review Looks Like.�
 - 2. Walk through your numbers. We look at what you are paying now, based on your statement, not a generic average.
 - 3. See what fits. If a different setup fits how you take cards, we explain it. If it does not, we say so.
 - 4. Decide if a change is worth it. You leave with a clear read of the statement. There is no pressure to switch.
-- Close: “Review My Processing Costs” → `#book`, with “Bring a recent statement if you have one.”
+- Close: “Review My Processing Costs” opens the Calendly URL, with “Bring a recent statement if you have one.”
 
 No visible step number. Each card has a teal bar across the top. The list stays ordered, so the sequence is still available to assistive tech. Steps stay one per row until the large breakpoint, then four columns. Do not title a step as a savings calculation. Do not end the process on switching. Do not add product options, timelines, or equipment until those are confirmed.
 
@@ -247,28 +246,29 @@ Four questions, each a `details` disclosure. The heading and the list are center
 
 Primary wording: **Review My Processing Costs** (hero, nav, calculator, how it works, final, footer). The sticky bar shortens it to “Review My Costs.” Specific and financially relevant.
 
-The scheduler links use those same words. The `#book` heading is “A 30-Minute Look at Your Statement.” The final heading is “Ready for the 30-minute review?” Do not put “savings” on a button. The call is 30 minutes. Do not claim the review is free.
+The review buttons use those same words and open `https://calendly.com/vicbarrios24/30min`. The `#book` heading is “A 30-Minute Look at Your Statement.” The final heading is “Ready for the 30-minute review?” Do not put “savings” on a button. The call is 30 minutes. Do not claim the review is free. “No-obligation” on the hero means no duty to switch. The booking band keeps “No pressure to switch.”
 
-Path: hero, nav, calculator, and how it works scroll to `#book`. “Use my own numbers” in the problem section scrolls to `#savings` only. The `#book` button, the final button, the sticky bar, and the footer link open the scheduler in the same tab. They share one URL and `data-booking-url`. Do not leave a new-tab link to a placeholder URL.
+Path: hero, nav, calculator, how it works, the `#book` button, the final button, the sticky bar, and the footer open that Calendly URL in the same tab. They share one URL and `data-booking-url`. “Use my own numbers” scrolls to `#savings` only. How It Works, Savings, and FAQ still scroll to their sections. Do not open the scheduler in a new tab.
 
-Phone, once verified, stays in the footer as contact. It is not a second hero button.
+Do not publish a phone number or an email address. Neither is a second hero button.
 
 Avoid generic “Book a Call.” Do not claim “free” until consultation pricing is verified.
 
 ## Lead Capture / Booking
 
-- Provider: **TBD** (Calendly, Cal.com, or other)
-- Current URL: `https://example.com/book` (not a real scheduler)
-- Swap the shared scheduler URL on the `#book` button, the final CTA, the sticky bar, and the footer link. Keep each `data-booking-url` in sync.
-- Prefer the same tab, or embed the scheduler in `#book`. The `#book` link does not use `target="_blank"`.
+- Provider: **Calendly**
+- URL: `https://calendly.com/vicbarrios24/30min`
+- The HTML still uses `https://example.com/book` until Phase 1 replaces it. Put the Calendly URL on every review CTA: hero, nav, calculator, how it works, `#book`, final CTA, sticky bar, and footer. Keep each `data-booking-url` in sync.
+- Same tab. No review CTA uses `target="_blank"`.
 - Call length: **30 minutes**. Say so on the booking band. Bring a recent statement if they have one. No pressure to switch.
-- Qualifying questions belong on the scheduler, not in a long on-page form: business type, monthly card-volume range, city, and whether they have a recent statement. Ask current processor, exact rate, and terminal count on the call.
+- Qualifying questions belong on the Calendly event, not in a long on-page form: business type, monthly card-volume range, city, and whether they have a recent statement. Those questions are not confirmed on the event yet. Ask current processor, exact rate, and terminal count on the call.
 - Minimum card volume is unknown. Add it as a scheduler question or a disqualifier once the business sets a floor.
+- Public phone and email: **omit**. Do not publish either. Remove the footer placeholders. Do not invent replacements.
 - Privacy and Terms: the footer links to `/privacy.html` and `/terms.html`, and those files are not in the project (404). Remove the links or publish real pages before launch.
 
 ## Integrations
 
-None yet. Planned: analytics, ad pixels, CRM, scheduler embed/link.
+None yet on the page. Scheduler URL is decided (Calendly). Still planned: analytics, ad pixels, CRM.
 
 ## Design System
 
@@ -333,7 +333,7 @@ All theme controls live in `scss/_variables.scss`. Significant visual changes sh
 
 **Google Business Profile:** Status unknown. Recommend creating a GBP only if SwipeX qualifies (physical office customers can visit, or legitimate service-area business with policy-compliant coverage). **Do not fabricate an office address for rankings.**
 
-**NAP:** Phone, email, and street address are **placeholders / unverified**. Footer currently uses example.com contact stubs.
+**NAP:** No public phone, no public email, and no street address. Footer placeholders must come off the page. Do not invent contact details.
 
 **Service-area strategy:** Lead with San Bernardino; County / Inland Empire as secondary context only. No multi-city doorway pages yet.
 
@@ -356,7 +356,7 @@ All theme controls live in `scss/_variables.scss`. Significant visual changes sh
 
 **Structured data:** Minimal `Organization` JSON-LD on homepage with name, description, `areaServed`, `knowsAbout`. No address, phone, ratings, or prices until verified. FAQPage schema deferred until more answers are verified. LocalBusiness subtype deferred until NAP / GBP model confirmed.
 
-**Do not publish unfinished entity facts.** example.com phone and email, pending FAQ notes, and placeholder testimonials must not ship. Once call length, what to bring, and who the owner meets are known, add a short factual block in HTML: what SwipeX is, what the review includes, where it operates, and how to book. That is the useful answer-engine improvement. No extra schema until those facts are verified.
+**Do not publish unfinished entity facts.** Placeholder phone and email, pending FAQ notes, and placeholder testimonials must not ship. Phone and email are omitted, not replaced. Once call length, what to bring, and who the owner meets are known, add a short factual block in HTML: what SwipeX is, what the review includes, where it operates, and how to book. That is the useful answer-engine improvement. No extra schema until those facts are verified.
 
 ## Claims / Compliance
 
@@ -366,7 +366,7 @@ All theme controls live in `scss/_variables.scss`. Significant visual changes sh
 | Prohibited until verified | Guaranteed savings, zero-fee / free processing claims, fake social proof, invented rates, fake address |
 | Needs verification | Exact program model (dual pricing / cash discount / IC+), equipment, contracts, pricing, timelines, card brands, “free” consult |
 | Soften before launch | Video label “See how businesses reduce processing costs” implies proven outcomes. Soften it or support it before launch. The booking heading is now “A 30-Minute Look at Your Statement.” |
-| Confirm wording | “No-obligation” appears in the hero, meta description, and booking section. Confirm it means no duty to switch, and that it does not mean the analysis is free. |
+| Decided | “No-obligation” means no duty to switch, not a free review (2026-11-12). The hero trust line stays “No-obligation statement review.” The booking band keeps “No pressure to switch.” Do not add “free.” The meta description still says “savings analysis” and waits for the Phase 3 rewrite, after the hero video is removed. |
 | CA note | Civil Code §1748.1 restricts surcharges historically while allowing cash discounts; Italian Colors affects enforcement nuance; SB 478 honest-pricing rules also relevant. Site gives general info only—not legal advice. |
 
 ## Technical Architecture
@@ -416,8 +416,8 @@ Not implemented. Planned for first production launch with the lightest reasonabl
 | Event | Trigger | Role |
 |---|---|---|
 | `page_view` | GA4 default | Baseline |
-| `cta_click` | In-page CTA click. `location`: `hero`, `nav`, `problem`, `calculator`, or `how` | Diagnostic. `problem` scrolls to `#savings`. The others scroll to `#book`. None of these is the conversion. |
-| `booking_click` | Click on a scheduler link: `#book`, final CTA, sticky bar, or footer. One event per click. | Launch key event |
+| `cta_click` | “Use my own numbers” only. `location`: `problem`. Scrolls to `#savings`. | Diagnostic. Not the conversion. Do not also fire `booking_click`. |
+| `booking_click` | Click on a review CTA: hero, nav, calculator, how it works, `#book`, final CTA, sticky bar, or footer. One event per click. URL: `https://calendly.com/vicbarrios24/30min`. | Launch key event |
 | `calculator_use` | Once per page view, after the visitor changes an input and a result is shown | Diagnostic. Do not fire on every keystroke. |
 | `video_play` | Real video ID loads a player | Diagnostic. Do not wire while the ID is still a placeholder. |
 | `generate_lead` | Thank-you page or confirmed scheduler completion | Later key event. Not at launch. |
@@ -457,11 +457,12 @@ Audit date: 2026-10-06. The goal is qualified booked reviews with San Bernardino
 
 Landing page (cost problem, cost calculator, how the review works, answered FAQs only)
 → one CTA, “Review My Processing Costs”
-→ `#book` explains what the review is
-→ real scheduler with a few qualifying questions
+→ Calendly (`https://calendly.com/vicbarrios24/30min`)
 → appointment
 
-Hero, nav, calculator, and how it works stop at `#book`. The final button, the sticky bar, and the footer link skip that scroll and open the scheduler.
+`#book` still explains the 30-minute review. It is not a required stop before the scheduler.
+
+Every “Review My Processing Costs” button, and the sticky “Review My Costs” button, opens the Calendly URL. “Use my own numbers” still scrolls to `#savings`. The `#book` section still explains the review.
 
 Do not add a second hero CTA. Do not collect a long form on the page in v1.
 
@@ -494,23 +495,36 @@ Set a minimum volume when the business knows it. Until then, the volume range is
 
 **Expansion.** Objective: a clearer offer, then nearby markets SwipeX actually serves. Tasks: program-model copy, savings math only if the model supports it, video, statement upload, CRM, paid search, then a city page only with proof. Success: a verified offer and at least one real local result before any new market page.
 
+## Implementation Workflow
+
+`PROJECT.md` is the permanent project source of truth. `IMPLEMENTATION.md` is the local active implementation checklist for launch work. It is intentionally excluded from Git, so a fresh clone will not have it.
+
+Agents doing launch-related work should read, when the files are available:
+
+1. `PROJECT.md`
+2. `IMPLEMENTATION.md`, if it is present
+
+Then identify the first relevant unchecked task, implement it, verify it, and check it off in `IMPLEMENTATION.md`. Update `PROJECT.md` when the change affects permanent architecture, SEO strategy, analytics strategy, copy rules, or business decisions. Keep temporary task progress in `IMPLEMENTATION.md`.
+
+If `IMPLEMENTATION.md` is missing, regenerate it from this file, the **Launch Checklist**, and the latest launch audit. Do not treat the checklist as a second source of truth, and do not block other work on a file that is not versioned.
+
 ## Current Work
 
 **Pre-launch lead path.** The landing page strategy is in place: cost-focused hero, cost-only calculator, San Bernardino positioning, lightweight HTML/SCSS/JS. It cannot generate a qualified lead yet.
 
-The scheduler URL is `https://example.com/book`, shared by the booking band, the final CTA, the sticky bar, and the footer link. Footer phone and email are fake. Privacy and Terms links 404. The hero play button does nothing and shows developer placeholder copy. The proof section is the Socorrito Store quote plus two cards labeled temporary templates. The photo is not on the page. Unanswered FAQ items are off the page.
+The decided scheduler URL is `https://calendly.com/vicbarrios24/30min` for every review CTA. The HTML still points those links at `https://example.com/book`. Phone and email will be omitted, but the footer still shows the placeholders. Privacy and Terms links 404. The hero play button does nothing and shows developer placeholder copy. The proof section is the Socorrito Store quote plus two cards labeled temporary templates. The photo is not on the page. Unanswered FAQ items are off the page. “No-obligation” means no duty to switch, not a free review. The hero trust line stays. The meta description is unchanged until the hero video is replaced.
 
-Clear that public page and connect a real scheduler before domain, GA4, and Search Console. Program-model claims stay deferred. The 2026-10-06 audit did not change site code.
+Clear that public page and connect a real scheduler before domain, GA4, and Search Console. Program-model claims stay deferred. The 2026-10-06 audit did not change site code. A 2026-10-14 launch audit also left the site code unchanged and recorded the ordered tasks in local `IMPLEMENTATION.md` when that file is present.
 
-See **CRO Strategy** for the flow, lead-quality rules, and phases.
+See **CRO Strategy** for the flow, lead-quality rules, and phases. See **Implementation Workflow** for how to use the local checklist.
 
 ## Next Steps
 
-Do these first. Later phases are in **CRO Strategy**. Do not expand into multi-city SEO, CRM, ads, or a framework.
+Do these first. Later phases are in **CRO Strategy**. Do not expand into multi-city SEO, CRM, ads, or a framework. When `IMPLEMENTATION.md` is present, carry out the launch work from its first relevant unchecked task, and check tasks off there only after verification. The list below stays the permanent sequence.
 
-1. Write down the minimum facts for a real review: who the merchant talks to, phone, email, whether the review is free, and what they receive. Call length is 30 minutes. Confirm “no-obligation” does not mean the review is free.
-2. Take unfinished content off the public page: the dead video play button (use a static “what the review covers” card) and the example.com phone and email. Remove Privacy and Terms links until those pages exist. The proof photo is off the page. Two proof cards are still labeled temporary templates and should come off before launch. Unanswered FAQ items are already off the page.
-3. Replace `https://example.com/book` with a working scheduler on every link that uses it: the booking band, the final CTA, the sticky bar, and the footer. Put qualifying questions there (business type, monthly volume range, city, statement yes/no). `#book` still explains the review. Complete one real test booking on a phone.
+1. Write down the remaining facts for a real review: who the merchant talks to, and what they receive. Call length is 30 minutes. Phone and email are omitted. “No-obligation” means no duty to switch, not a free review.
+2. Take unfinished content off the public page: the dead video play button (use a static “what the review covers” card) and the placeholder phone and email. Remove Privacy and Terms links until those pages exist. The proof photo is off the page. Two proof cards are still labeled temporary templates and should come off before launch. Unanswered FAQ items are already off the page.
+3. Replace `https://example.com/book` with `https://calendly.com/vicbarrios24/30min` on every review CTA: hero, nav, calculator, how it works, the booking band, the final CTA, the sticky bar, and the footer. Confirm the Calendly event asks business type, monthly volume range, city, and statement yes/no. `#book` still explains the review. Complete one real test booking on a phone.
 4. After that path works: hosting, HTTPS, production canonical, Open Graph, and schema URLs, `robots.txt`, `sitemap.xml`, GA4 with `booking_click` as the key event, Search Console, then Lighthouse on the live URL.
 5. Get the first conversations from people SwipeX already knows or can meet locally. Record why they booked or did not. Use that before any headline test, video production, or ads.
 
@@ -599,8 +613,8 @@ Aligns with existing **Local SEO** / **Geographic Strategy**. No multi-city door
 
 - [ ] Clearly state San Bernardino, CA service relevance (already in live hero/footer; re-check after any edits)
 - [ ] Confirm business name is consistent (legal name / DBA vs SwipeX still TBD)
-- [ ] Confirm phone number (replace footer placeholders)
-- [ ] Confirm email (replace example.com stubs)
+- [x] Confirm phone number: omit. Do not publish one. Footer placeholders still need to be removed.
+- [x] Confirm email: omit. Do not publish one. Footer placeholders still need to be removed.
 - [ ] Confirm service area language (San Bernardino primary; County / IE secondary only)
 - [ ] Add physical address only if legitimate and appropriate
 - [ ] Verify Google Business Profile eligibility (office vs service-area)
@@ -779,15 +793,16 @@ Preserve existing patterns: skip link, landmarks, one H1, native controls, `:foc
 | **First launch = measurable static site on custom domain** | Domain + crawl/index + GA4 + Search Console + primary booking conversion + Lighthouse targets; no framework/CRM expansion |
 | **Launch key event = booking_click** | Outbound click to the real scheduler. generate_lead waits for a thank-you or completion URL. |
 | Calculator shows cost, not savings | Savings math waits until the program model is verified. The yearly cost is the only large figure. Defaults stay filled and read as the example until the owner edits a field. A missing rate does not block the review. |
-| Booking button = “Review My Processing Costs” | Same words as the buttons that scroll to `#book`. The heading names the 30-minute statement review. “Get My Savings Analysis” read like a second offer. |
-| Final close and sticky bar open the scheduler | After the FAQ, another scroll to `#book` is an extra step. The final button, sticky bar, and footer link use the same scheduler URL. Hero, nav, calculator, and how it works still scroll to `#book`. |
+| Booking button = “Review My Processing Costs” | Same words on every review CTA. The `#book` heading names the 30-minute statement review. “Get My Savings Analysis” read like a second offer. |
+| Every review CTA opens Calendly | `https://calendly.com/vicbarrios24/30min`, same tab, on the hero, nav, calculator, how it works, `#book`, final CTA, sticky bar, and footer. “Use my own numbers” still scrolls to `#savings`. |
 | Problem section = one worked example | The yearly cost ($17,400 in the sample) is the only large figure. Four equal cards buried it, and “Placeholder example” on each card undercut the number. Still an example, not a quote or a savings claim. |
 | Problem bridge = “Use my own numbers” → `#savings` | The next step is the calculator. This is not a second booking offer. |
-| How it works = the review, then the same booking CTA | The section answers what the call is. Step 2 does not promise a savings calculation. Step 4 ends on the decision, with no pressure to switch. The close uses “Review My Processing Costs” → `#book`. |
+| How it works = the review, then the same booking CTA | The section answers what the call is. Step 2 does not promise a savings calculation. Step 4 ends on the decision, with no pressure to switch. The close uses “Review My Processing Costs” and opens the Calendly URL. |
 | Business types = recognition, not a second offer | Inline stroke icons, no letter tiles and no extra request. “Other local services” plus “you can still book” covers owners who do not see their type. No button and no per-type savings claim. |
 | Short checkmark lists stay one per row on narrow screens | A wrapped 2 + 1 row is harder to scan. The hero trust list stays one column on desktop too, because the copy column is too narrow for a clean row. |
 | Qualification lives on the scheduler | A few questions there. No long on-site form in v1. |
-| Phone is contact, not a second hero CTA | One primary action: the processing-cost review. |
+| No public phone or email | Launch decision, 2026-10-14. Do not publish either. One primary action: the processing-cost review. |
+| “No-obligation” means no duty to switch | Decision 2026-11-12. It does not mean the review is free. The hero line stays “No-obligation statement review.” The booking band keeps “No pressure to switch.” Do not add “free.” |
 | No dead hero video at launch | A play button that does not load a player is a dead end. |
 | First traffic is direct outreach, then GBP if eligible | Paid ads wait until a test booking and GA4 both work. |
 | No headline A/B until real leads exist | Learn from the first conversations before testing copy. |
@@ -796,13 +811,15 @@ Preserve existing patterns: skip link, landmarks, one H1, native controls, `:foc
 
 Ranked by impact on whether a business owner will book a qualified review.
 
+**Decided (2026-10-14):** scheduler is Calendly at `https://calendly.com/vicbarrios24/30min`, on every review CTA. Public phone and email are omitted.
+
+**Decided (2026-11-12):** “No-obligation” means no duty to switch. It does not mean the review is free. The hero trust line stays. Do not call the review free.
+
 **Highest impact (blocks a real lead):**
 
-- Booking provider and production URL (replace `https://example.com/book`)?
 - What does the owner receive on the 30-minute review, beyond a walkthrough of rates, fees, and volume? Call length is 30 minutes.
 - Who does the merchant talk to (name and role)?
-- Is the savings analysis free? Confirm that “no-obligation” does not mean the review is free.
-- Verified phone and email (replace footer stubs)?
+- Are the Calendly qualifying questions set (business type, monthly volume range, city, statement yes/no)?
 - Minimum monthly card volume, if any? Any industries or volumes SwipeX will not take?
 
 **Needed before public launch:**
@@ -835,6 +852,9 @@ Ranked by impact on whether a business owner will book a qualified review.
 
 ## Change Log
 
+- **2026-11-12** - “No-obligation” means no duty to switch, not a free review. The hero trust line stays “No-obligation statement review.” The meta description is not rewritten yet. Updated Core Value Proposition, Messaging, CTA Strategy, Claims, Current Work, Next Steps, Decisions, and Open Questions.
+- **2026-10-14** - Scheduler is Calendly (`https://calendly.com/vicbarrios24/30min`) for every review CTA. Public phone and email are omitted. HTML not updated yet. Updated Messaging, CTA Strategy, Booking, Analytics, Local SEO, CRO Strategy, Current Work, Next Steps, Launch Checklist, Decisions, and Open Questions.
+- **2026-10-14** - Added **Implementation Workflow**. Ordered launch tasks belong in local `IMPLEMENTATION.md` (gitignored) when that file is present. No site code was changed.
 - **2026-10-08** - Final CTA is “Ready for the 30-minute review?” Its button, the sticky bar, and the footer link open the scheduler. “Savings analysis” is off that close. Updated Messaging, Page Structure, CTA Strategy, Booking, Analytics, Next Steps, and Decisions.
 - **2026-10-08** - FAQ is four answered questions in a centered column. Pending items and internal notes are off the page. Updated Page Structure, FAQ, Current Work, Next Steps, and Backlog.
 - **2026-10-08** - Booking band is “A 30-Minute Look at Your Statement.” The button matches the other review CTAs. The developer call-length note is gone. Updated Messaging, CTA Strategy, Booking, Decisions, and Open Questions.

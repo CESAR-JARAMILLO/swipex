@@ -141,6 +141,7 @@ Rewrite anything that fails this review. Keep conversion intent, SEO meaning, an
 9. FAQ (four answered questions, centered column; unfinished items stay in this file)
 10. Final CTA (“Ready for the 30-minute review?”; button opens the scheduler)
 11. Footer
+12. Privacy (`privacy.html`) and Terms (`terms.html`). These pages describe this website only. They list no phone and no email. Canonical URLs wait until the production domain is known.
 
 ## Hero
 
@@ -264,7 +265,7 @@ Avoid generic “Book a Call.” Do not claim “free” until consultation pric
 - Qualifying questions belong on the Calendly event, not in a long on-page form: business type, monthly card-volume range, city, and whether they have a recent statement. Those questions are not confirmed on the event yet. Ask current processor, exact rate, and terminal count on the call.
 - Minimum card volume is unknown. Add it as a scheduler question or a disqualifier once the business sets a floor.
 - Public phone and email: **omit**. Do not publish either. Remove the footer placeholders. Do not invent replacements.
-- Privacy and Terms: the footer links to `/privacy.html` and `/terms.html`, and those files are not in the project (404). Remove the links or publish real pages before launch.
+- Privacy and Terms: `privacy.html` and `terms.html` describe the current website. The homepage footer links to both. They are not a lawyer-reviewed compliance claim. No public phone or email is listed. Google Analytics is not on the site. Update `privacy.html` before that tag goes live. Do not add a canonical URL until the production domain is known.
 
 ## Integrations
 
@@ -368,10 +369,11 @@ All theme controls live in `scss/_variables.scss`. Significant visual changes sh
 | Soften before launch | Video label “See how businesses reduce processing costs” implies proven outcomes. Soften it or support it before launch. The booking heading is now “A 30-Minute Look at Your Statement.” |
 | Decided | “No-obligation” means no duty to switch, not a free review (2026-11-12). The hero trust line stays “No-obligation statement review.” The booking band keeps “No pressure to switch.” Do not add “free.” The meta description still says “savings analysis” and waits for the Phase 3 rewrite, after the hero video is removed. |
 | CA note | Civil Code §1748.1 restricts surcharges historically while allowing cash discounts; Italian Colors affects enforcement nuance; SB 478 honest-pricing rules also relevant. Site gives general info only—not legal advice. |
+| Decided | `privacy.html` and `terms.html` describe the current website (2026-11-12). No phone, no email, no analytics tag, and no canonical URL until the production domain exists. Update the privacy page before adding GA4. A lawyer has not reviewed these pages. |
 
 ## Technical Architecture
 
-- Semantic HTML5 (`index.html`)
+- Semantic HTML5 (`index.html`, `privacy.html`, `terms.html`)
 - SCSS → compiled CSS (`scss/` → `css/styles.css`) via official `sass` package
 - Vanilla JS (`js/main.js`): nav, video facade, calculator, year stamp
 - No frameworks, no bundler, no CSS framework
@@ -512,7 +514,7 @@ If `IMPLEMENTATION.md` is missing, regenerate it from this file, the **Launch Ch
 
 **Pre-launch lead path.** The landing page strategy is in place: cost-focused hero, cost-only calculator, San Bernardino positioning, lightweight HTML/SCSS/JS. It cannot generate a qualified lead yet.
 
-The decided scheduler URL is `https://calendly.com/vicbarrios24/30min` for every review CTA. The HTML still points those links at `https://example.com/book`. Phone and email will be omitted, but the footer still shows the placeholders. Privacy and Terms links 404. The hero play button does nothing and shows developer placeholder copy. The proof section is the Socorrito Store quote plus two cards labeled temporary templates. The photo is not on the page. Unanswered FAQ items are off the page. “No-obligation” means no duty to switch, not a free review. The hero trust line stays. The meta description is unchanged until the hero video is replaced.
+The decided scheduler URL is `https://calendly.com/vicbarrios24/30min` for every review CTA. `index.html` still points those links at `https://example.com/book`. `privacy.html` and `terms.html` already use the Calendly URL. Phone and email will be omitted, but the homepage footer still shows the placeholders. The legal pages do not. The hero play button does nothing and shows developer placeholder copy. The proof section is the Socorrito Store quote plus two cards labeled temporary templates. The photo is not on the page. Unanswered FAQ items are off the page. “No-obligation” means no duty to switch, not a free review. The hero trust line stays. The meta description is unchanged until the hero video is replaced.
 
 Clear that public page and connect a real scheduler before domain, GA4, and Search Console. Program-model claims stay deferred. The 2026-10-06 audit did not change site code. A 2026-10-14 launch audit also left the site code unchanged and recorded the ordered tasks in local `IMPLEMENTATION.md` when that file is present.
 
@@ -523,7 +525,7 @@ See **CRO Strategy** for the flow, lead-quality rules, and phases. See **Impleme
 Do these first. Later phases are in **CRO Strategy**. Do not expand into multi-city SEO, CRM, ads, or a framework. When `IMPLEMENTATION.md` is present, carry out the launch work from its first relevant unchecked task, and check tasks off there only after verification. The list below stays the permanent sequence.
 
 1. Write down the remaining facts for a real review: who the merchant talks to, and what they receive. Call length is 30 minutes. Phone and email are omitted. “No-obligation” means no duty to switch, not a free review.
-2. Take unfinished content off the public page: the dead video play button (use a static “what the review covers” card) and the placeholder phone and email. Remove Privacy and Terms links until those pages exist. The proof photo is off the page. Two proof cards are still labeled temporary templates and should come off before launch. Unanswered FAQ items are already off the page.
+2. Take unfinished content off the public page: the dead video play button (use a static “what the review covers” card) and the placeholder phone and email on the homepage footer. `privacy.html` and `terms.html` are in place and describe the current website. The proof photo is off the page. Two proof cards are still labeled temporary templates and should come off before launch. Unanswered FAQ items are already off the page.
 3. Replace `https://example.com/book` with `https://calendly.com/vicbarrios24/30min` on every review CTA: hero, nav, calculator, how it works, the booking band, the final CTA, the sticky bar, and the footer. Confirm the Calendly event asks business type, monthly volume range, city, and statement yes/no. `#book` still explains the review. Complete one real test booking on a phone.
 4. After that path works: hosting, HTTPS, production canonical, Open Graph, and schema URLs, `robots.txt`, `sitemap.xml`, GA4 with `booking_click` as the key event, Search Console, then Lighthouse on the live URL.
 5. Get the first conversations from people SwipeX already knows or can meet locally. Record why they booked or did not. Use that before any headline test, video production, or ads.
@@ -579,7 +581,7 @@ Important page content is already in HTML (not JS-gated). Preserve that.
 - [ ] Create/verify `/robots.txt`
 - [ ] Confirm production is not blocked from crawling
 - [ ] Confirm there is no accidental `noindex`
-- [ ] Create/verify `/sitemap.xml`
+- [ ] Create/verify `/sitemap.xml` (homepage, `/privacy.html`, and `/terms.html`, on the production host)
 - [ ] Include canonical URL on the homepage
 - [ ] Confirm canonical points to the production URL
 - [ ] Ensure all important content remains available in HTML
@@ -627,14 +629,15 @@ Aligns with existing **Local SEO** / **Geographic Strategy**. No multi-city door
 
 ### 7. Privacy and Basic Legal Pages
 
-The footer links to `/privacy.html` and `/terms.html`, and those files are not in the project. Do not claim legal compliance without review. Remove the links until the pages exist, or publish real pages before launch.
+`privacy.html` and `terms.html` describe the current website. They are not a lawyer-reviewed compliance claim. No public phone or email is listed. Google Analytics is not on the site. Update `privacy.html` before adding that tag. Canonical URLs wait for the production domain. Do not claim legal compliance without review.
 
-- [ ] Privacy Policy content completed for production
-- [ ] Terms / Terms of Use content completed for production
-- [ ] Contact information on legal/contact surfaces matches verified NAP
-- [ ] Analytics disclosure where appropriate (GA4)
+- [x] Privacy Policy content written for the current site (`privacy.html`)
+- [x] Terms content written for the current site (`terms.html`)
+- [x] Legal pages omit phone and email, matching the decision to publish neither
+- [ ] Update the privacy page when GA4 is added, before the tag goes live
 - [ ] Confirm whether cookie consent is required for the actual GA4-only implementation (jurisdiction-dependent; do not assume)
-- [ ] Verify booking/forms explain how submitted information will be used where needed
+- [ ] Lawyer review before treating these pages as a compliance claim
+- [x] Booking path explains that Calendly collects what the merchant submits there. The on-site calculator is not submitted.
 
 ### 8. Performance / Lighthouse
 
@@ -803,6 +806,7 @@ Preserve existing patterns: skip link, landmarks, one H1, native controls, `:foc
 | Qualification lives on the scheduler | A few questions there. No long on-site form in v1. |
 | No public phone or email | Launch decision, 2026-10-14. Do not publish either. One primary action: the processing-cost review. |
 | “No-obligation” means no duty to switch | Decision 2026-11-12. It does not mean the review is free. The hero line stays “No-obligation statement review.” The booking band keeps “No pressure to switch.” Do not add “free.” |
+| Privacy and Terms describe this website | Decision 2026-11-12. `privacy.html` and `terms.html` stay linked. They state what the page does now: no on-site form, no site cookies, no analytics, booking details collected on Calendly. No phone, no email, and no canonical URL until the production domain exists. Update the privacy page before GA4. A lawyer has not reviewed them. |
 | No dead hero video at launch | A play button that does not load a player is a dead end. |
 | First traffic is direct outreach, then GBP if eligible | Paid ads wait until a test booking and GA4 both work. |
 | No headline A/B until real leads exist | Learn from the first conversations before testing copy. |
@@ -815,6 +819,8 @@ Ranked by impact on whether a business owner will book a qualified review.
 
 **Decided (2026-11-12):** “No-obligation” means no duty to switch. It does not mean the review is free. The hero trust line stays. Do not call the review free.
 
+**Decided (2026-11-12):** `privacy.html` and `terms.html` describe the current website and stay linked from the footer. They omit phone, email, analytics, and a canonical URL. Update the privacy page before GA4. A lawyer has not reviewed them.
+
 **Highest impact (blocks a real lead):**
 
 - What does the owner receive on the 30-minute review, beyond a walkthrough of rates, fees, and volume? Call length is 30 minutes.
@@ -826,14 +832,14 @@ Ranked by impact on whether a business owner will book a qualified review.
 
 - Final domain / canonical URL?
 - Preferred host format (`www` vs non-`www`) and production hosting provider?
-- Privacy Policy and Terms content? (`privacy.html` and `terms.html` are linked and missing.)
-- GA4 measurement ID / property?
+- GA4 measurement ID / property? Update `privacy.html` before that tag goes live.
 - Google Search Console property and ownership method (Domain vs URL-prefix)?
 - Does the GA4-only setup require a cookie consent banner for the jurisdictions you serve?
 
 **Affects offer strength, schema, and later SEO:**
 
-- Legal business name / DBA beyond SwipeX?
+- Lawyer review of `privacy.html` and `terms.html` before treating them as a compliance claim?
+- Legal business name / DBA beyond SwipeX? The terms page does not state one.
 - Exact role: independent agent, ISO, or processor relationship?
 - Exact payment program model (dual pricing, cash discount, surcharge-compliant structure, interchange-plus, etc.)?
 - Do customers visit an office, or is SwipeX service-area only?
@@ -852,6 +858,7 @@ Ranked by impact on whether a business owner will book a qualified review.
 
 ## Change Log
 
+- **2026-11-12** - Added `privacy.html` and `terms.html` for the current website. No phone, no email, no analytics disclosure beyond “not running yet,” and no canonical URL. Homepage booking links are still `example.com`. Updated Page Structure, Booking, Claims, Architecture, Current Work, Next Steps, Launch Checklist, Decisions, and Open Questions.
 - **2026-11-12** - “No-obligation” means no duty to switch, not a free review. The hero trust line stays “No-obligation statement review.” The meta description is not rewritten yet. Updated Core Value Proposition, Messaging, CTA Strategy, Claims, Current Work, Next Steps, Decisions, and Open Questions.
 - **2026-10-14** - Scheduler is Calendly (`https://calendly.com/vicbarrios24/30min`) for every review CTA. Public phone and email are omitted. HTML not updated yet. Updated Messaging, CTA Strategy, Booking, Analytics, Local SEO, CRO Strategy, Current Work, Next Steps, Launch Checklist, Decisions, and Open Questions.
 - **2026-10-14** - Added **Implementation Workflow**. Ordered launch tasks belong in local `IMPLEMENTATION.md` (gitignored) when that file is present. No site code was changed.

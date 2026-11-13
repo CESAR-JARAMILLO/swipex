@@ -181,7 +181,7 @@
   // --- Init ---
   function init() {
     initNav();
-    initVideoFacades();
+    // Hero is a static review card until a real video ID exists.
     initCalculator();
     initYear();
   }

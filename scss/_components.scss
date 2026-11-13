@@ -176,6 +176,115 @@
   border: 0;
 }
 
+.review-card {
+  display: flex;
+  flex-direction: column;
+  background: $color-surface;
+  border: 1px solid rgba($color-brand-teal, 0.28);
+  border-radius: $border-radius-lg;
+  box-shadow: $shadow-md;
+  overflow: hidden;
+}
+
+.review-card__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.125rem 1.25rem;
+  background: $color-primary-dark;
+  color: $color-text-light;
+}
+
+.review-card__kicker {
+  margin: 0 0 0.3rem;
+  max-width: none;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: $color-secondary;
+}
+
+.review-card__title {
+  margin: 0;
+  max-width: 14rem;
+  font-size: clamp(1.3rem, 2.4vw, 1.55rem);
+  color: $color-text-light;
+}
+
+.review-card__mark {
+  flex-shrink: 0;
+  width: 4.25rem;
+  height: 4.25rem;
+}
+
+.review-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.125rem 1.25rem 1.25rem;
+}
+
+.review-card__list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.review-card__list li {
+  display: grid;
+  grid-template-columns: 2.5rem minmax(0, 1fr);
+  column-gap: 0.75rem;
+  align-items: center;
+  font-size: 0.975rem;
+  font-weight: 600;
+  line-height: 1.35;
+  color: $color-text;
+}
+
+.review-card__icon {
+  display: grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: $border-radius;
+  background: $color-primary-light;
+  color: $color-primary-dark;
+}
+
+.review-card__label,
+.review-card__detail {
+  display: block;
+}
+
+.review-card__detail {
+  margin-top: 0.15rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.4;
+  color: $color-text-muted;
+}
+
+.review-card__note {
+  margin: 0;
+  max-width: none;
+  padding: 0.875rem 1rem;
+  border-radius: $border-radius;
+  background: $color-primary-light;
+  font-size: 0.9375rem;
+  color: $color-text;
+
+  strong {
+    display: block;
+    margin-bottom: 0.2rem;
+    color: $color-primary-dark;
+  }
+}
+
 // Worked cost example — one group, yearly figure is the only large number
 .cost-example {
   display: flex;
@@ -568,15 +677,10 @@
   text-align: center;
 }
 
-// Social proof — quote spans the row; templates sit underneath
+// Social proof — one verified quote
 .proof-grid {
   display: grid;
   gap: 0.875rem;
-
-  @media (min-width: $bp-md) {
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-  }
 }
 
 .proof-card {
@@ -591,29 +695,9 @@
 
   &--quote {
     @media (min-width: $bp-md) {
-      grid-column: 1 / -1;
       padding: 1.5rem 1.75rem;
     }
   }
-
-  &--template {
-    border-top-color: $color-border-strong;
-    background: transparent;
-  }
-}
-
-.proof-card__badge {
-  align-self: flex-start;
-  margin: 0;
-  max-width: none;
-  padding: 0.2rem 0.5rem;
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
-  color: $color-text;
-  background: $color-background;
-  border-radius: $border-radius-sm;
 }
 
 .proof-card__quote {
@@ -637,12 +721,6 @@
   line-height: 0.85;
   font-weight: 700;
   color: $color-primary;
-}
-
-.proof-card__text {
-  max-width: none;
-  margin: 0;
-  font-size: 0.9375rem;
 }
 
 .proof-card__meta {

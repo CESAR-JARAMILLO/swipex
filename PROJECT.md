@@ -51,7 +51,7 @@ SwipeX helps merchants see what processing is really costing them and evaluate w
 - H1: “How Much Are Credit Card Fees Costing Your Business?”
 - Subhead: SwipeX helps San Bernardino merchants review their current processing costs. We look at your statement to see if a different payment setup could reduce what you absorb, instead of giving you a generic sales pitch.
 - Primary CTA: “Review My Processing Costs”
-- Video label: “See how businesses reduce processing costs”
+- Video label: removed. The hero media is a static review card until a real video exists. Do not use “See how businesses reduce processing costs.”
 - Trust: No-obligation statement review · Serving San Bernardino-area merchants · Built around your real numbers. Keep the hero line. “No-obligation” means no duty to switch, not a free review.
 
 **Other CTAs:**
@@ -136,27 +136,33 @@ Rewrite anything that fails this review. Keep conversion intent, SEO meaning, an
 4. Savings calculator
 5. How it works (4 steps; heading “What the Review Looks Like”; nav label stays “How It Works”)
 6. Who it’s for (seven business types, inline icons, no booking button)
-7. Social proof (Socorrito Store quote, no photo; two cards labeled temporary templates)
+7. Social proof (Socorrito Store quote only, no photo)
 8. Booking / consultation CTA
 9. FAQ (four answered questions, centered column; unfinished items stay in this file)
 10. Final CTA (“Ready for the 30-minute review?”; button opens the scheduler)
 11. Footer
-12. Privacy (`privacy.html`) and Terms (`terms.html`). These pages describe this website only. They list no phone and no email. Canonical URLs wait until the production domain is known.
+12. Privacy (`privacy.html`) and Terms (`terms.html`). These pages describe this website only. They list no phone and no email. The preferred origin is `https://www.swipexthefee.com`. Canonical tags in the HTML still use `example.com` until they are replaced.
 
 ## Hero
 
 Loss-aversion H1 focused on cost visibility. Local relevance in eyebrow + subhead (not keyword-stuffed H1). Do not rewrite the H1 for launch. CTA drives to the statement review.
 
-The headline can be understood quickly. The hero still fails a 5-second trust check: the main visual is a non-functional video placeholder ("Video thumbnail placeholder"), and the primary CTA only scrolls to `#book`. A play button that does nothing must not ship.
+The headline can be understood quickly. The hero media is a static review card: what the review covers, what to bring, device choice, and no pressure to switch. A play button that does not load a player must not ship. Video becomes the primary visual only when a real player exists.
 
-Until a real video exists, replace that media with a static card: what the review covers, what to bring, and that there is no obligation to switch. Video becomes the primary visual only when the facade loads a real player.
+**Live card:**
+- Dark header with a statement graphic. Kicker: “30-minute review.” Title: “What the review covers.”
+- Rates, fees, and card volume
+- Device: “You choose the device.” Detail: countertop, handheld, or a register setup. No brand list, no “free equipment,” and no pricing.
+- No pressure to switch
+- Highlighted line: “Nothing to bring to book.” A recent statement only if monthly card sales are high enough that it shows what they actually pay.
+- Header is a solid deep teal. The only hero booking button is the one under the headline.
+
+**Statement threshold, researched 2026-11-13:** there is no single public dollar amount for this. Pepper Pay’s underwriting checklist asks for three months of processing statements when monthly volume is over $150,000 on lower-risk files, and asks for them more broadly on moderate and high-risk files ([Pepper Pay underwriting requirements](https://pepperpay.com/resource-center/underwriting-requirements.php)). Payarc does not require processing statements for unrestricted card-present merchants at or under $250,000 a month, and does require them for other merchants ([Payarc partner guidelines](https://support.payarc.com/hc/en-us/articles/34344650087191-Underwriting-Risk-Partner-Guidelines)). An Elavon application package asks for three months of statements whenever the merchant already accepts cards ([NTC / Elavon checklist](https://ntctravel.net/1-23ElavonMerchantAppPackagemoto.pdf)). Do not print one of those figures as a SwipeX rule.
 
 ## Video
 
 - Purpose: short explainer of the problem and the statement review
-- Status: **not launch-ready.** `data-video-id` is `PLACEHOLDER_VIDEO_ID`. Click logs a console message and does not load a player.
-- Launch rule: video is optional. Do not ship this control. Use the static review card until a real ID, thumbnail, and captions or a short transcript exist.
-- Label to soften before a real video ships: “See how businesses reduce processing costs” implies verified results. Prefer “See how a statement review works” unless a real result supports the stronger line.
+- Status: **not on the page.** The hero is a static review card. Do not initialize a placeholder player. Video returns only with a real ID, thumbnail, and captions or a short transcript.
 - When produced: about 60 to 90 seconds. Open on the fee problem and the review. Then why statements are hard to read, what the review includes, what to bring, and how to book. CTA stays on the page before and after the player.
 - Hosting: YouTube or Vimeo (facade supports both via `data-video-provider`)
 - Thumbnail: WebP or AVIF, with width and height set
@@ -185,7 +191,7 @@ The yearly figure is the only large number. Do not split the example into equal 
 **Status:** basic estimate only. Savings-delta and program-specific math stay deferred until business rules are defined.  
 **Placement:** after the problem section, not in the hero. Do not add a savings estimate.  
 **Defaults:** $50,000 and 2.9%, matching the worked example. The label stays “Annual processing cost in this example,” with “These match the example. Change either number.” After the owner edits a field, the label becomes “Your estimated annual processing cost.” Do not clear the defaults.  
-**Lead capture:** none in the calculator. The CTA continues to `#book`.  
+**Lead capture:** none in the calculator. The CTA opens `https://calendly.com/vicbarrios24/30min`.  
 **Unknown rate:** “If you don't know your rate, a recent statement is enough. You can still book the review.” Do not require the rate to book.  
 **CTA:** “Review My Processing Costs” opens `https://calendly.com/vicbarrios24/30min`  
 **Under the button:** “We'll look at a recent statement. There's no pressure to switch.”  
@@ -198,8 +204,8 @@ On small screens the yearly figure sits above the inputs. From the tablet breakp
 Four steps after the calculator. The heading is “What the Review Looks Like.” The nav label stays “How It Works.”
 
 **Live:**
-- Intro: “Bring a recent statement. We go through your rates, fees, and volume together.”
-- 1. Review your statement. Share a recent statement so we can see your rates, fees, and volume.
+- Intro: “You can book without bringing anything. If monthly card sales are high enough that we need your real numbers, bring a recent statement.”
+- 1. Review your statement. If they have a recent statement, use it to see rates, fees, and volume. Booking does not require one.
 - 2. Walk through your numbers. We look at what you are paying now, based on your statement, not a generic average.
 - 3. See what fits. If a different setup fits how you take cards, we explain it. If it does not, we say so.
 - 4. Decide if a change is worth it. You leave with a clear read of the statement. There is no pressure to switch.
@@ -220,15 +226,14 @@ Each type uses a small inline stroke icon in the button teal. No icon font, no i
 
 ## Social proof
 
-Three cards after the business types, then the booking section. No photo. No second button.
+One quote after the business types, then the booking section. No photo. No second button.
 
 **Live:**
 - H2: “From Local Merchants”
 - Intro: “A San Bernardino store, in their own words.”
 - Real quote, with quotation marks: “SwipeX changed how we take card payments. We've saved thousands in fees, and support has been there when we needed it.” Attribution: Socorrito Store, San Bernardino, CA.
-- The other two cards say “Temporary template” and that they are not a customer result. Do not write a fake business or a fake quote in those cards.
 
-The quote spans the full row from tablet width. The two templates sit side by side under it. On a phone everything stacks. Remove the template cards before launch if they are still empty. Do not add review schema.
+Do not add another card until it has a business name, city, and an approved result. Do not write a fake business or a fake quote. Do not add review schema. The Socorrito quote stays public unless that approval is withdrawn.
 
 ## FAQ
 
@@ -237,7 +242,7 @@ Four questions, each a `details` disclosure. The heading and the list are center
 **Live:**
 - Intro: “A few answers before you book the review.”
 - What SwipeX does for San Bernardino businesses: a cost review, usually a 30-minute statement review.
-- Can you review a statement: yes. Bring a recent statement. 30 minutes. Uses their volume, rates, and fees.
+- Can you review a statement: yes. The review is 30 minutes. Book without a statement. Bring a recent one if monthly card sales are high enough that SwipeX needs it. Uses their volume, rates, and fees.
 - California fee pass-through: Civil Code §1748.1, cash discounts may be allowed, not legal advice.
 - Dual pricing and cash discount: definitions only. Do not say SwipeX offers either until the program model is confirmed.
 
@@ -259,13 +264,12 @@ Avoid generic “Book a Call.” Do not claim “free” until consultation pric
 
 - Provider: **Calendly**
 - URL: `https://calendly.com/vicbarrios24/30min`
-- The HTML still uses `https://example.com/book` until Phase 1 replaces it. Put the Calendly URL on every review CTA: hero, nav, calculator, how it works, `#book`, final CTA, sticky bar, and footer. Keep each `data-booking-url` in sync.
-- Same tab. No review CTA uses `target="_blank"`.
+- The HTML uses `https://calendly.com/vicbarrios24/30min` on every review CTA: hero, nav, calculator, how it works, `#book`, final CTA, sticky bar, and footer. Keep each `data-booking-url` in sync. Same tab. No review CTA uses `target="_blank"`.
 - Call length: **30 minutes**. Say so on the booking band. Bring a recent statement if they have one. No pressure to switch.
 - Qualifying questions belong on the Calendly event, not in a long on-page form: business type, monthly card-volume range, city, and whether they have a recent statement. Those questions are not confirmed on the event yet. Ask current processor, exact rate, and terminal count on the call.
 - Minimum card volume is unknown. Add it as a scheduler question or a disqualifier once the business sets a floor.
-- Public phone and email: **omit**. Do not publish either. Remove the footer placeholders. Do not invent replacements.
-- Privacy and Terms: `privacy.html` and `terms.html` describe the current website. The homepage footer links to both. They are not a lawyer-reviewed compliance claim. No public phone or email is listed. Google Analytics is not on the site. Update `privacy.html` before that tag goes live. Do not add a canonical URL until the production domain is known.
+- Public phone and email: **omit**. The homepage footer has neither. Do not invent replacements.
+- Privacy and Terms: `privacy.html` and `terms.html` describe the current website. The homepage footer links to both. They are not a lawyer-reviewed compliance claim. No public phone or email is listed. Google Analytics is not on the site. Update `privacy.html` before that tag goes live. The preferred origin is `https://www.swipexthefee.com`. Canonical tags in the HTML still use `example.com` until they are replaced.
 
 ## Integrations
 
@@ -334,13 +338,13 @@ All theme controls live in `scss/_variables.scss`. Significant visual changes sh
 
 **Google Business Profile:** Status unknown. Recommend creating a GBP only if SwipeX qualifies (physical office customers can visit, or legitimate service-area business with policy-compliant coverage). **Do not fabricate an office address for rankings.**
 
-**NAP:** No public phone, no public email, and no street address. Footer placeholders must come off the page. Do not invent contact details.
+**NAP:** No public phone, no public email, and no street address. The homepage footer lists none of them. Do not invent contact details.
 
 **Service-area strategy:** Lead with San Bernardino; County / Inland Empire as secondary context only. No multi-city doorway pages yet.
 
 **Citation opportunities (after NAP verified):** Apple Business Connect, Bing Places, relevant CA / Inland Empire directories, chamber listings, industry associations—consistent NAP only.
 
-**Local testimonial strategy:** Prioritize verified quotes with business name (or initials), industry, city (San Bernardino or served city), and approved result. The live quote is Socorrito Store, San Bernardino, CA. Two other proof cards are labeled temporary templates and are not results.
+**Local testimonial strategy:** Prioritize verified quotes with business name (or initials), industry, city (San Bernardino or served city), and approved result. The only live quote is Socorrito Store, San Bernardino, CA.
 
 **Public page rule (2026-10-06):** Do not leave placeholder testimonials or unanswered FAQ items in indexable HTML. Labeled fake proof and “Answer pending” notes are what Google and answer engines can quote. Keep those notes in this file until the facts exist.
 
@@ -357,7 +361,7 @@ All theme controls live in `scss/_variables.scss`. Significant visual changes sh
 
 **Structured data:** Minimal `Organization` JSON-LD on homepage with name, description, `areaServed`, `knowsAbout`. No address, phone, ratings, or prices until verified. FAQPage schema deferred until more answers are verified. LocalBusiness subtype deferred until NAP / GBP model confirmed.
 
-**Do not publish unfinished entity facts.** Placeholder phone and email, pending FAQ notes, and placeholder testimonials must not ship. Phone and email are omitted, not replaced. Once call length, what to bring, and who the owner meets are known, add a short factual block in HTML: what SwipeX is, what the review includes, where it operates, and how to book. That is the useful answer-engine improvement. No extra schema until those facts are verified.
+**Do not publish unfinished entity facts.** Phone and email are omitted, not replaced. Pending FAQ notes and placeholder testimonials must not ship. Once call length, what to bring, and who the owner meets are known, add a short factual block in HTML: what SwipeX is, what the review includes, where it operates, and how to book. That is the useful answer-engine improvement. No extra schema until those facts are verified.
 
 ## Claims / Compliance
 
@@ -366,10 +370,10 @@ All theme controls live in `scss/_variables.scss`. Significant visual changes sh
 | Allowed | Educational framing; “may reduce what they absorb”; statement review; San Bernardino service-area language |
 | Prohibited until verified | Guaranteed savings, zero-fee / free processing claims, fake social proof, invented rates, fake address |
 | Needs verification | Exact program model (dual pricing / cash discount / IC+), equipment, contracts, pricing, timelines, card brands, “free” consult |
-| Soften before launch | Video label “See how businesses reduce processing costs” implies proven outcomes. Soften it or support it before launch. The booking heading is now “A 30-Minute Look at Your Statement.” |
+| Soften before launch | The booking heading is “A 30-Minute Look at Your Statement.” The hero video label is gone. |
 | Decided | “No-obligation” means no duty to switch, not a free review (2026-11-12). The hero trust line stays “No-obligation statement review.” The booking band keeps “No pressure to switch.” Do not add “free.” The meta description still says “savings analysis” and waits for the Phase 3 rewrite, after the hero video is removed. |
 | CA note | Civil Code §1748.1 restricts surcharges historically while allowing cash discounts; Italian Colors affects enforcement nuance; SB 478 honest-pricing rules also relevant. Site gives general info only—not legal advice. |
-| Decided | `privacy.html` and `terms.html` describe the current website (2026-11-12). No phone, no email, no analytics tag, and no canonical URL until the production domain exists. Update the privacy page before adding GA4. A lawyer has not reviewed these pages. |
+| Decided | `privacy.html` and `terms.html` describe the current website (2026-11-12). No phone, no email, and no analytics tag. The preferred origin is `https://www.swipexthefee.com` (2026-11-13). Canonical tags in the HTML still use `example.com` until they are replaced. Update the privacy page before adding GA4. A lawyer has not reviewed these pages. |
 
 ## Technical Architecture
 
@@ -514,7 +518,7 @@ If `IMPLEMENTATION.md` is missing, regenerate it from this file, the **Launch Ch
 
 **Pre-launch lead path.** The landing page strategy is in place: cost-focused hero, cost-only calculator, San Bernardino positioning, lightweight HTML/SCSS/JS. It cannot generate a qualified lead yet.
 
-The decided scheduler URL is `https://calendly.com/vicbarrios24/30min` for every review CTA. `index.html` still points those links at `https://example.com/book`. `privacy.html` and `terms.html` already use the Calendly URL. Phone and email will be omitted, but the homepage footer still shows the placeholders. The legal pages do not. The hero play button does nothing and shows developer placeholder copy. The proof section is the Socorrito Store quote plus two cards labeled temporary templates. The photo is not on the page. Unanswered FAQ items are off the page. “No-obligation” means no duty to switch, not a free review. The hero trust line stays. The meta description is unchanged until the hero video is replaced.
+The decided scheduler URL is `https://calendly.com/vicbarrios24/30min` for every review CTA. `index.html`, `privacy.html`, and `terms.html` use that URL in the same tab. The homepage footer has no phone and no email. The legal pages do not either. The hero play button is gone. The right side of the hero is a static review card. The proof section is the Socorrito Store quote only. The photo is not on the page. Unanswered FAQ items are off the page. “No-obligation” means no duty to switch, not a free review. The hero trust line stays. The preferred origin is `https://www.swipexthefee.com`. Canonical, Open Graph, and schema URLs in the HTML still use `example.com`. The meta description is unchanged until it is rewritten.
 
 Clear that public page and connect a real scheduler before domain, GA4, and Search Console. Program-model claims stay deferred. The 2026-10-06 audit did not change site code. A 2026-10-14 launch audit also left the site code unchanged and recorded the ordered tasks in local `IMPLEMENTATION.md` when that file is present.
 
@@ -525,9 +529,9 @@ See **CRO Strategy** for the flow, lead-quality rules, and phases. See **Impleme
 Do these first. Later phases are in **CRO Strategy**. Do not expand into multi-city SEO, CRM, ads, or a framework. When `IMPLEMENTATION.md` is present, carry out the launch work from its first relevant unchecked task, and check tasks off there only after verification. The list below stays the permanent sequence.
 
 1. Write down the remaining facts for a real review: who the merchant talks to, and what they receive. Call length is 30 minutes. Phone and email are omitted. “No-obligation” means no duty to switch, not a free review.
-2. Take unfinished content off the public page: the dead video play button (use a static “what the review covers” card) and the placeholder phone and email on the homepage footer. `privacy.html` and `terms.html` are in place and describe the current website. The proof photo is off the page. Two proof cards are still labeled temporary templates and should come off before launch. Unanswered FAQ items are already off the page.
-3. Replace `https://example.com/book` with `https://calendly.com/vicbarrios24/30min` on every review CTA: hero, nav, calculator, how it works, the booking band, the final CTA, the sticky bar, and the footer. Confirm the Calendly event asks business type, monthly volume range, city, and statement yes/no. `#book` still explains the review. Complete one real test booking on a phone.
-4. After that path works: hosting, HTTPS, production canonical, Open Graph, and schema URLs, `robots.txt`, `sitemap.xml`, GA4 with `booking_click` as the key event, Search Console, then Lighthouse on the live URL.
+2. Unfinished public content is off the homepage: no placeholder phone or email, no hero video placeholder, and no temporary proof cards. The Socorrito Store quote is the only proof card. `privacy.html` and `terms.html` describe the current website. Unanswered FAQ items are already off the page.
+3. The review CTAs now open `https://calendly.com/vicbarrios24/30min` in the same tab: hero, nav, calculator, how it works, the booking band, the final CTA, the sticky bar, and the footer. Confirm the Calendly event asks business type, monthly volume range, city, and statement yes/no. `#book` still explains the review. Complete one real test booking on a phone.
+4. After that path works: hosting, HTTPS, then replace `example.com` with `https://www.swipexthefee.com` on the canonical, Open Graph, and schema URLs. Add `robots.txt` and `sitemap.xml`, GA4 with `booking_click` as the key event, Search Console, then Lighthouse on the live URL. The apex host redirects to `www`.
 5. Get the first conversations from people SwipeX already knows or can meet locally. Record why they booked or did not. Use that before any headline test, video production, or ads.
 
 **After a working booking path:** the rest of the **Launch Checklist**. Real explainer video, verified testimonials, program-model copy, GBP only if eligible, LocalBusiness / FAQPage schema, and nearby-city pages only with real service proof. Paid ads only after a test booking and GA4 both work.
@@ -543,10 +547,10 @@ Keep hosting aligned with the static-site architecture (HTML/CSS/JS; no server a
 - [ ] Production hosting selected/configured
 - [ ] Custom domain connected
 - [ ] HTTPS/SSL enabled
-- [ ] Preferred domain format selected (`www` or non-`www`)
+- [x] Preferred domain format selected (`www`)
 - [ ] Redirect alternate domain version to preferred version
 - [ ] HTTP redirects to HTTPS
-- [ ] Production URL recorded in PROJECT.md (Open Questions / Decisions)
+- [x] Production URL recorded in PROJECT.md (Open Questions / Decisions): `https://www.swipexthefee.com`
 - [ ] Final production build (`npm run build` output) tested on actual hosting
 
 ### 2. Google Analytics 4
@@ -721,10 +725,10 @@ Preserve existing patterns: skip link, landmarks, one H1, native controls, `:foc
 
 ### 12. Final Pre-Launch Review
 
-- [ ] Remove unfinished public content (placeholder proof, dead video, pending FAQ notes). Keep deferred ideas in PROJECT.md, not on the live page.
+- [x] Remove unfinished public content (placeholder proof, dead video, pending FAQ notes). Keep deferred ideas in PROJECT.md, not on the live page.
 - [ ] Remove test URLs
-- [ ] Remove dummy email/phone information
-- [ ] Remove placeholder testimonials from the public page (labeling them is not enough). Two proof cards are still marked “Temporary template.”
+- [x] Remove dummy email/phone information
+- [x] Remove placeholder testimonials from the public page (labeling them is not enough). The Socorrito Store quote is the only proof card.
 - [ ] Confirm internal notes are absent from public HTML (“Answer pending”, “Placeholder testimonial”, developer video copy)
 - [ ] Remove unsupported claims (no zero-fee / guaranteed savings / unverified “free”)
 - [ ] Confirm copy follows PROJECT.md **Copywriting Rules**
@@ -781,7 +785,7 @@ Preserve existing patterns: skip link, landmarks, one H1, native controls, `:foc
 | Video facade | Avoid third-party JS/iframe until interaction |
 | System fonts first | Core Web Vitals; brand fonts later if needed |
 | `details`/`summary` FAQ | Accessible, no JS required |
-| One verified quote, templates labeled as templates | Labeled fake quotes still reduce trust. Socorrito Store is the only real note, with no photo. The other two cards say they are temporary templates and are not customer results. |
+| One verified quote | Socorrito Store is the only proof card, with no photo. Do not add another card until it has a business name, city, and an approved result. |
 | Teal primary / green secondary | Trust + AA CTAs; green as accent/savings |
 | Hero = left copy / right proof of the review | Video returns on the right when a real player exists. Until then, a static “what the review covers” card. |
 | Sticky mobile CTA | Social/ad traffic often mobile |
@@ -806,8 +810,10 @@ Preserve existing patterns: skip link, landmarks, one H1, native controls, `:foc
 | Qualification lives on the scheduler | A few questions there. No long on-site form in v1. |
 | No public phone or email | Launch decision, 2026-10-14. Do not publish either. One primary action: the processing-cost review. |
 | “No-obligation” means no duty to switch | Decision 2026-11-12. It does not mean the review is free. The hero line stays “No-obligation statement review.” The booking band keeps “No pressure to switch.” Do not add “free.” |
-| Privacy and Terms describe this website | Decision 2026-11-12. `privacy.html` and `terms.html` stay linked. They state what the page does now: no on-site form, no site cookies, no analytics, booking details collected on Calendly. No phone, no email, and no canonical URL until the production domain exists. Update the privacy page before GA4. A lawyer has not reviewed them. |
-| No dead hero video at launch | A play button that does not load a player is a dead end. |
+| Privacy and Terms describe this website | Decision 2026-11-12. `privacy.html` and `terms.html` stay linked. They state what the page does now: no on-site form, no site cookies, no analytics, booking details collected on Calendly. No phone and no email. The preferred origin is `https://www.swipexthefee.com`. Canonical tags in the HTML still use `example.com` until they are replaced. Update the privacy page before GA4. A lawyer has not reviewed them. |
+| No dead hero video at launch | A play button that does not load a player is a dead end. The hero is a static review card. |
+| Merchant chooses the card device | Decision 2026-11-13. The review card says a countertop terminal, a handheld, or a register setup. No brand, no “free equipment,” and no price until those are confirmed. |
+| No published dollar cutoff for bringing a statement | Decision 2026-11-13. Book with nothing in hand. A statement is for monthly card sales high enough that it shows what they pay. Processor underwriting cutoffs disagree ($150,000, $250,000, or “already accepting cards”), so the page does not name one as a SwipeX rule. |
 | First traffic is direct outreach, then GBP if eligible | Paid ads wait until a test booking and GA4 both work. |
 | No headline A/B until real leads exist | Learn from the first conversations before testing copy. |
 
@@ -819,7 +825,9 @@ Ranked by impact on whether a business owner will book a qualified review.
 
 **Decided (2026-11-12):** “No-obligation” means no duty to switch. It does not mean the review is free. The hero trust line stays. Do not call the review free.
 
-**Decided (2026-11-12):** `privacy.html` and `terms.html` describe the current website and stay linked from the footer. They omit phone, email, analytics, and a canonical URL. Update the privacy page before GA4. A lawyer has not reviewed them.
+**Decided (2026-11-12):** `privacy.html` and `terms.html` describe the current website and stay linked from the footer. They omit phone, email, and analytics. Update the privacy page before GA4. A lawyer has not reviewed them.
+
+**Decided (2026-11-13):** the production origin is `https://www.swipexthefee.com`. The apex, `https://swipexthefee.com`, redirects to `www`. Canonical, Open Graph, and schema URLs in the HTML still use `example.com` until they are replaced. Do not point public DNS at the site until the launch checks pass.
 
 **Highest impact (blocks a real lead):**
 
@@ -830,8 +838,7 @@ Ranked by impact on whether a business owner will book a qualified review.
 
 **Needed before public launch:**
 
-- Final domain / canonical URL?
-- Preferred host format (`www` vs non-`www`) and production hosting provider?
+- Production origin: `https://www.swipexthefee.com` (2026-11-13). The apex redirects to `www`. Canonical tags in the HTML still use `example.com` until they are replaced. Do not point public DNS until the launch checks pass.
 - GA4 measurement ID / property? Update `privacy.html` before that tag goes live.
 - Google Search Console property and ownership method (Domain vs URL-prefix)?
 - Does the GA4-only setup require a cookie consent banner for the jurisdictions you serve?
@@ -858,6 +865,11 @@ Ranked by impact on whether a business owner will book a qualified review.
 
 ## Change Log
 
+- **2026-11-13** - Removed the two temporary proof cards and the homepage footer phone and email. The Socorrito Store quote is the only proof card. Preferred origin is `https://www.swipexthefee.com`. Canonical tags still use `example.com`.
+- **2026-11-13** - Pointed every homepage review CTA at `https://calendly.com/vicbarrios24/30min` in the same tab. “Use my own numbers” still scrolls to `#savings`.
+- **2026-11-13** - Hero keeps one booking button, under the headline. The review card header is a solid deep teal.
+- **2026-11-13** - Restyled the hero review card so the device choice and “nothing to bring” read first. Added an inline statement graphic and a second review button on the card. No stock photo.
+- **2026-11-13** - Replaced the hero video placeholder with a static review card. The card covers rates, fees, volume, device choice, and no pressure to switch. Booking does not require a statement. No dollar cutoff is printed, because published underwriting rules disagree. Updated Hero, Video, Messaging, How it works, FAQ, Current Work, and Decisions.
 - **2026-11-12** - Added `privacy.html` and `terms.html` for the current website. No phone, no email, no analytics disclosure beyond “not running yet,” and no canonical URL. Homepage booking links are still `example.com`. Updated Page Structure, Booking, Claims, Architecture, Current Work, Next Steps, Launch Checklist, Decisions, and Open Questions.
 - **2026-11-12** - “No-obligation” means no duty to switch, not a free review. The hero trust line stays “No-obligation statement review.” The meta description is not rewritten yet. Updated Core Value Proposition, Messaging, CTA Strategy, Claims, Current Work, Next Steps, Decisions, and Open Questions.
 - **2026-10-14** - Scheduler is Calendly (`https://calendly.com/vicbarrios24/30min`) for every review CTA. Public phone and email are omitted. HTML not updated yet. Updated Messaging, CTA Strategy, Booking, Analytics, Local SEO, CRO Strategy, Current Work, Next Steps, Launch Checklist, Decisions, and Open Questions.

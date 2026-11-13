@@ -14,7 +14,7 @@
   <meta property="og:locale" content="en_US">
   <meta property="og:url" content="https://example.com/">
   <meta property="og:title" content="How Much Are Credit Card Fees Costing Your San Bernardino Business?">
-  <meta property="og:description" content="SwipeX helps San Bernardino merchants review processing costs and see if a different payment setup could lower what they absorb. Watch a short explainer or request a statement review.">
+  <meta property="og:description" content="SwipeX helps San Bernardino merchants review processing costs and see if a different payment setup could lower what they absorb. Request a statement review.">
   <meta property="og:image" content="https://example.com/assets/images/og-image.jpg">
 
   <!-- Twitter -->
@@ -104,7 +104,7 @@
           <li><a class="site-nav__link" href="#savings">Savings</a></li>
           <li><a class="site-nav__link" href="#faq">FAQ</a></li>
           <li>
-            <a class="btn btn--primary site-nav__cta" href="#book">
+            <a class="btn btn--primary site-nav__cta" href="https://calendly.com/vicbarrios24/30min" data-booking-url>
               Review My Processing Costs
             </a>
           </li>
@@ -131,7 +131,7 @@
             what you absorb, instead of giving you a generic sales pitch.
           </p>
           <div class="hero__actions">
-            <a class="btn btn--primary btn--lg" href="#book">
+            <a class="btn btn--primary btn--lg" href="https://calendly.com/vicbarrios24/30min" data-booking-url>
               Review My Processing Costs
             </a>
           </div>
@@ -158,32 +158,57 @@
         </div>
 
         <div class="hero__media">
-          <span class="hero__video-label">See how businesses reduce processing costs</span>
-          <!-- Video facade: iframe loads only after user interaction -->
-          <div
-            class="video-facade"
-            data-video-facade
-            data-video-id="PLACEHOLDER_VIDEO_ID"
-            data-video-provider="youtube"
-          >
-            <!-- Replace with real thumbnail: assets/images/video-thumb.webp -->
-            <div class="video-facade__placeholder" aria-hidden="true">
-              Video thumbnail placeholder<br>
-              (16:9, replace with WebP or AVIF)
+          <article class="review-card" aria-labelledby="review-card-heading">
+            <header class="review-card__head">
+              <div>
+                <p class="review-card__kicker">30-minute review</p>
+                <h2 id="review-card-heading" class="review-card__title">What the review covers</h2>
+              </div>
+              <svg class="review-card__mark" viewBox="0 0 72 72" aria-hidden="true">
+                <rect x="16" y="10" width="40" height="52" rx="4" fill="none" stroke="currentColor" stroke-width="2"/>
+                <path d="M26 24h20M26 32h14M26 40h18" stroke="#9bca3b" stroke-width="2.5" stroke-linecap="round"/>
+                <rect x="26" y="48" width="18" height="6" rx="1.5" fill="#9bca3b"/>
+              </svg>
+            </header>
+            <div class="review-card__body">
+              <ul class="review-card__list">
+                <li>
+                  <span class="review-card__icon" aria-hidden="true">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                      <path d="M7 4.5h7.5L19 9v10.5a1.5 1.5 0 0 1-1.5 1.5h-10A1.5 1.5 0 0 1 6 19.5v-13A1.5 1.5 0 0 1 7.5 5H7z" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round"/>
+                      <path d="M14 5v4.5h4.5M9 13h6M9 16.5h4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/>
+                    </svg>
+                  </span>
+                  <span>Rates, fees, and card volume</span>
+                </li>
+                <li>
+                  <span class="review-card__icon" aria-hidden="true">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                      <rect x="7" y="3.5" width="10" height="17" rx="2" stroke="currentColor" stroke-width="1.75"/>
+                      <path d="M10 18h4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/>
+                    </svg>
+                  </span>
+                  <span>
+                    <span class="review-card__label">You choose the device</span>
+                    <span class="review-card__detail">Countertop, handheld, or a register setup</span>
+                  </span>
+                </li>
+                <li>
+                  <span class="review-card__icon" aria-hidden="true">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                      <circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="1.75"/>
+                      <path d="M8.5 12.2l2.3 2.3 4.7-5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </span>
+                  <span>No pressure to switch</span>
+                </li>
+              </ul>
+              <p class="review-card__note">
+                <strong>Nothing to bring to book.</strong>
+                A recent statement only if monthly card sales are high enough that it shows what you actually pay.
+              </p>
             </div>
-            <button
-              class="video-facade__play"
-              type="button"
-              data-video-play
-              aria-label="Play explainer video: see how businesses reduce processing costs"
-            >
-              <span class="video-facade__play-icon" aria-hidden="true">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                  <path d="M8 5v14l11-7z"/>
-                </svg>
-              </span>
-            </button>
-          </div>
+          </article>
         </div>
       </div>
     </section>
@@ -258,7 +283,7 @@
               Estimate only. Not a quote. Does not include card mix, interchange, or monthly fees.
             </p>
             <div class="calculator__cta">
-              <a class="btn btn--primary btn--full" href="#book">
+              <a class="btn btn--primary btn--full" href="https://calendly.com/vicbarrios24/30min" data-booking-url>
                 Review My Processing Costs
               </a>
               <p class="calculator__next">
@@ -319,14 +344,14 @@
       <div class="container">
         <div class="section__header section__header--center">
           <h2 id="how-heading">What the Review Looks Like</h2>
-          <p>Bring a recent statement. We go through your rates, fees, and volume together.</p>
+          <p>You can book without bringing anything. If monthly card sales are high enough that we need your real numbers, bring a recent statement.</p>
         </div>
 
         <ol class="steps">
           <li class="step">
             <h3 class="step__title">Review your statement</h3>
             <p class="step__text">
-              Share a recent statement so we can see your rates, fees, and volume.
+              If you have a recent statement, we use it to see your rates, fees, and volume.
             </p>
           </li>
           <li class="step">
@@ -350,7 +375,7 @@
         </ol>
 
         <div class="steps__cta">
-          <a class="btn btn--primary" href="#book">Review My Processing Costs</a>
+          <a class="btn btn--primary" href="https://calendly.com/vicbarrios24/30min" data-booking-url>Review My Processing Costs</a>
           <p>Bring a recent statement if you have one.</p>
         </div>
       </div>
@@ -438,16 +463,6 @@
             </blockquote>
             <p class="proof-card__meta">Socorrito Store <span class="proof-card__place">San Bernardino, CA</span></p>
           </article>
-
-          <article class="proof-card proof-card--template">
-            <p class="proof-card__badge">Temporary template</p>
-            <p class="proof-card__text">This card will be replaced with a verified merchant quote. It is not a customer result.</p>
-          </article>
-
-          <article class="proof-card proof-card--template">
-            <p class="proof-card__badge">Temporary template</p>
-            <p class="proof-card__text">This card will be replaced with a verified merchant quote. It is not a customer result.</p>
-          </article>
         </div>
       </div>
     </section>
@@ -463,12 +478,7 @@
             <li>A recent statement, if you have one</li>
             <li>No pressure to switch</li>
           </ul>
-          <!--
-            BOOKING PROVIDER PLACEHOLDER
-            Replace this URL, and the same URL on the final CTA, sticky bar, and footer link.
-            Keep each data-booking-url attribute in sync.
-          -->
-          <a class="btn btn--accent btn--lg" href="https://example.com/book" data-booking-url>
+          <a class="btn btn--accent btn--lg" href="https://calendly.com/vicbarrios24/30min" data-booking-url>
             Review My Processing Costs
           </a>
         </div>
@@ -499,8 +509,9 @@
             <summary class="faq-item__question">Can you review my current processing statement?</summary>
             <div class="faq-item__answer">
               <p>
-                Yes. Bring a recent statement. The review is 30 minutes, and we use your
-                volume, rates, and fees.
+                Yes. The review is 30 minutes. You can book without a statement.
+                Bring a recent one if monthly card sales are high enough that we need it.
+                We use your volume, rates, and fees.
               </p>
             </div>
           </details>
@@ -542,7 +553,7 @@
           <p class="cta-block__text">
             We'll go through your rates, fees, and volume. Bring a recent statement if you have one.
           </p>
-          <a class="btn btn--primary btn--lg" href="https://example.com/book" data-booking-url>
+          <a class="btn btn--primary btn--lg" href="https://calendly.com/vicbarrios24/30min" data-booking-url>
             Review My Processing Costs
           </a>
         </div>
@@ -552,7 +563,7 @@
 
   <!-- Mobile sticky CTA (hidden from md+ via CSS) -->
   <div class="sticky-cta" role="region" aria-label="Quick action">
-    <a class="btn btn--primary" href="https://example.com/book" data-booking-url>Review My Costs</a>
+    <a class="btn btn--primary" href="https://calendly.com/vicbarrios24/30min" data-booking-url>Review My Costs</a>
   </div>
 
   <footer class="site-footer">
@@ -581,16 +592,11 @@
             Payment processing cost reviews for merchants in and around
             San Bernardino, California.
           </p>
-          <p>
-            <!-- PLACEHOLDER contact details: replace with verified NAP -->
-            Email: <a href="mailto:hello@example.com">hello@example.com</a><br>
-            Phone: <a href="tel:+10000000000">(000) 000-0000</a>
-          </p>
         </div>
         <nav class="site-footer__links" aria-label="Footer">
           <a href="/privacy.html">Privacy Policy</a>
           <a href="/terms.html">Terms</a>
-          <a href="https://example.com/book" data-booking-url>Review My Processing Costs</a>
+          <a href="https://calendly.com/vicbarrios24/30min" data-booking-url>Review My Processing Costs</a>
         </nav>
       </div>
       <p class="site-footer__copy">

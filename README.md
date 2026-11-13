@@ -83,4 +83,4 @@ Edit `scss/_variables.scss` to change brand colors, typography, spacing, radii, 
 
 ## Project documentation
 
-`PROJECT.md` is the living source of truth for business context, messaging, conversion goals, technical decisions, and open questions. Read and update it when making meaningful changes.
+`PROJECT.md` is the living source of truth for business context, messaging, conversion goals, technical decisions, and open questions. Read it before meaningful changes, and update it when those changes affect permanent project decisions. For launch work, also read `IMPLEMENTATION.md` if that local file is present. Keep temporary launch progress there. It is gitignored and may be absent from a clone.

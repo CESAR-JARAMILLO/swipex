@@ -1,0 +1,20 @@
+# Publish only the assembled public site. Do not set the publish directory
+# to the repo root. That would expose PROJECT.md.
+# Do not point public DNS at this site until the Phase 10 checks pass.
+[build]
+  command = "npm run build"
+  publish = "site"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# Apex host to the preferred www origin. Netlify matches the hostname.
+# In the Netlify UI, set the primary domain to www.swipexthefee.com and
+# turn on Force HTTPS so http:// also 301s to https://. Confirm both on
+# the live host in Phase 10.
+[[redirects]]
+  from = "/*"
+  to = "https://www.swipexthefee.com/:splat"
+  status = 301
+  force = true
+  conditions = {Host = ["swipexthefee.com"]}

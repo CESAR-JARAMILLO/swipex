@@ -141,7 +141,7 @@ Rewrite anything that fails this review. Keep conversion intent, SEO meaning, an
 9. FAQ (four answered questions, centered column; unfinished items stay in this file)
 10. Final CTA (“Ready for the 30-minute review?”; button opens the scheduler)
 11. Footer
-12. Privacy (`privacy.html`) and Terms (`terms.html`). These pages describe this website only. They list no phone and no email. The preferred origin is `https://www.swipexthefee.com`. Canonical tags in the HTML still use `example.com` until they are replaced.
+12. Privacy (`privacy.html`) and Terms (`terms.html`). These pages describe this website only. They list no phone and no email. The preferred origin is `https://www.swipexthefee.com`. Canonical tags on the homepage, `privacy.html`, and `terms.html` use that origin. `robots.txt` allows crawling and points at `sitemap.xml`. The sitemap lists those three pages.
 
 ## Hero
 
@@ -269,11 +269,11 @@ Avoid generic “Book a Call.” Do not claim “free” until consultation pric
 - Qualifying questions belong on the Calendly event, not in a long on-page form: business type, monthly card-volume range, city, and whether they have a recent statement. Those questions are not confirmed on the event yet. Ask current processor, exact rate, and terminal count on the call.
 - Minimum card volume is unknown. Add it as a scheduler question or a disqualifier once the business sets a floor.
 - Public phone and email: **omit**. The homepage footer has neither. Do not invent replacements.
-- Privacy and Terms: `privacy.html` and `terms.html` describe the current website. The homepage footer links to both. They are not a lawyer-reviewed compliance claim. No public phone or email is listed. Google Analytics is not on the site. Update `privacy.html` before that tag goes live. The preferred origin is `https://www.swipexthefee.com`. Canonical tags in the HTML still use `example.com` until they are replaced.
+- Privacy and Terms: `privacy.html` and `terms.html` describe the current website. The homepage footer links to both. They are not a lawyer-reviewed compliance claim. No public phone or email is listed. Google Analytics 4 (`G-LDMKLF3QVM`) is on the public pages. `privacy.html` discloses it. The preferred origin is `https://www.swipexthefee.com`. Canonical tags on the homepage, `privacy.html`, and `terms.html` use that origin. `robots.txt` allows crawling and points at `sitemap.xml`. The sitemap lists those three pages.
 
 ## Integrations
 
-None yet on the page. Scheduler URL is decided (Calendly). Still planned: analytics, ad pixels, CRM.
+Google Analytics 4 (`G-LDMKLF3QVM`) is on the public pages. Scheduler URL is Calendly. Still planned: ad pixels, CRM.
 
 ## Design System
 
@@ -371,17 +371,17 @@ All theme controls live in `scss/_variables.scss`. Significant visual changes sh
 | Prohibited until verified | Guaranteed savings, zero-fee / free processing claims, fake social proof, invented rates, fake address |
 | Needs verification | Exact program model (dual pricing / cash discount / IC+), equipment, contracts, pricing, timelines, card brands, “free” consult |
 | Soften before launch | The booking heading is “A 30-Minute Look at Your Statement.” The hero video label is gone. |
-| Decided | “No-obligation” means no duty to switch, not a free review (2026-11-12). The hero trust line stays “No-obligation statement review.” The booking band keeps “No pressure to switch.” Do not add “free.” The meta description still says “savings analysis” and waits for the Phase 3 rewrite, after the hero video is removed. |
+| Decided | “No-obligation” means no duty to switch, not a free review (2026-11-12). The hero trust line stays “No-obligation statement review.” The booking band keeps “No pressure to switch.” Do not add “free.” The meta description names the 30-minute statement review and does not call it a savings analysis (2026-11-18). |
 | CA note | Civil Code §1748.1 restricts surcharges historically while allowing cash discounts; Italian Colors affects enforcement nuance; SB 478 honest-pricing rules also relevant. Site gives general info only—not legal advice. |
-| Decided | `privacy.html` and `terms.html` describe the current website (2026-11-12). No phone, no email, and no analytics tag. The preferred origin is `https://www.swipexthefee.com` (2026-11-13). Canonical tags in the HTML still use `example.com` until they are replaced. Update the privacy page before adding GA4. A lawyer has not reviewed these pages. |
+| Decided | `privacy.html` and `terms.html` describe the current website (2026-11-12). No phone and no email. Google Analytics 4 (`G-LDMKLF3QVM`) is on the public pages, and `privacy.html` discloses it (2026-11-18). The preferred origin is `https://www.swipexthefee.com` (2026-11-13). The homepage canonical, Open Graph, Twitter, and schema URLs use that origin (2026-11-18). Share image tags are removed until a real image exists. `privacy.html` and `terms.html` have canonical tags on that origin. `robots.txt` allows crawling and names the production sitemap. `sitemap.xml` lists the homepage, privacy page, and terms page. A lawyer has not reviewed these pages. |
 
 ## Technical Architecture
 
-- Semantic HTML5 (`index.html`, `privacy.html`, `terms.html`)
+- Semantic HTML5 (`index.html`, `privacy.html`, `terms.html`, `404.html`)
 - SCSS → compiled CSS (`scss/` → `css/styles.css`) via official `sass` package
-- Vanilla JS (`js/main.js`): nav, video facade, calculator, year stamp
+- Vanilla JS (`js/main.js`): nav, video facade, calculator, year stamp, analytics events
 - No frameworks, no bundler, no CSS framework
-- Prod ship: HTML + CSS + minimal JS
+- Prod ship: `npm run build` copies the public files into `site/`. `netlify.toml` publishes `site/`, not the repo root. The apex host redirects to `https://www.swipexthefee.com`. Force HTTPS is a Netlify UI setting. Do not point public DNS until the launch checks pass.
 
 ## Performance Requirements
 
@@ -411,9 +411,9 @@ All theme controls live in `scss/_variables.scss`. Significant visual changes sh
 
 ## Analytics
 
-Not implemented. Planned for first production launch with the lightest reasonable GA4 tag (no heavy cookie platforms or marketing automation).
+Google Analytics 4 is on `index.html`, `privacy.html`, and `terms.html`. Measurement ID: `G-LDMKLF3QVM`. One official `gtag.js` tag per page. No Tag Manager container, no ad pixel, and no consent banner. The banner stays off unless a later decision requires one. `privacy.html` discloses the tag. A lawyer has not reviewed that page.
 
-**Primary conversion:** `booking_click`, the outbound click to the real scheduler URL (request a processing-cost / savings analysis). Mark that event as the GA4 key event once wired.
+**Primary conversion:** `booking_click`, the outbound click to the real scheduler URL (request a processing-cost / savings analysis). Mark that event as the GA4 key event once a hit arrives in the property. Realtime confirmation is still open.
 
 `generate_lead` is not a launch event. Use it only after a thank-you URL or a confirmed completion exists, and then make that the key event instead of counting both.
 
@@ -518,7 +518,7 @@ If `IMPLEMENTATION.md` is missing, regenerate it from this file, the **Launch Ch
 
 **Pre-launch lead path.** The landing page strategy is in place: cost-focused hero, cost-only calculator, San Bernardino positioning, lightweight HTML/SCSS/JS. It cannot generate a qualified lead yet.
 
-The decided scheduler URL is `https://calendly.com/vicbarrios24/30min` for every review CTA. `index.html`, `privacy.html`, and `terms.html` use that URL in the same tab. The homepage footer has no phone and no email. The legal pages do not either. The hero play button is gone. The right side of the hero is a static review card. The proof section is the Socorrito Store quote only. The photo is not on the page. Unanswered FAQ items are off the page. “No-obligation” means no duty to switch, not a free review. The hero trust line stays. The preferred origin is `https://www.swipexthefee.com`. Canonical, Open Graph, and schema URLs in the HTML still use `example.com`. The meta description is unchanged until it is rewritten.
+The decided scheduler URL is `https://calendly.com/vicbarrios24/30min` for every review CTA. `index.html`, `privacy.html`, and `terms.html` use that URL in the same tab. The homepage footer has no phone and no email. The legal pages do not either. The hero play button is gone. The right side of the hero is a static review card. The proof section is the Socorrito Store quote only. The photo is not on the page. Unanswered FAQ items are off the page. “No-obligation” means no duty to switch, not a free review. The hero trust line stays. The preferred origin is `https://www.swipexthefee.com`. Homepage canonical, Open Graph, Twitter, and schema URLs use that origin. Share image tags are removed. The meta description names the 30-minute statement review. `privacy.html` and `terms.html` have canonical tags on that origin. `robots.txt` allows `/` and points at `https://www.swipexthefee.com/sitemap.xml`. The sitemap lists the homepage, privacy page, and terms page. Google Analytics 4 (`G-LDMKLF3QVM`) is on those pages. Events in code: `page_view`, `booking_click`, `cta_click`, and `calculator_use`.
 
 Clear that public page and connect a real scheduler before domain, GA4, and Search Console. Program-model claims stay deferred. The 2026-10-06 audit did not change site code. A 2026-10-14 launch audit also left the site code unchanged and recorded the ordered tasks in local `IMPLEMENTATION.md` when that file is present.
 
@@ -531,7 +531,7 @@ Do these first. Later phases are in **CRO Strategy**. Do not expand into multi-c
 1. Write down the remaining facts for a real review: who the merchant talks to, and what they receive. Call length is 30 minutes. Phone and email are omitted. “No-obligation” means no duty to switch, not a free review.
 2. Unfinished public content is off the homepage: no placeholder phone or email, no hero video placeholder, and no temporary proof cards. The Socorrito Store quote is the only proof card. `privacy.html` and `terms.html` describe the current website. Unanswered FAQ items are already off the page.
 3. The review CTAs now open `https://calendly.com/vicbarrios24/30min` in the same tab: hero, nav, calculator, how it works, the booking band, the final CTA, the sticky bar, and the footer. Confirm the Calendly event asks business type, monthly volume range, city, and statement yes/no. `#book` still explains the review. Complete one real test booking on a phone.
-4. After that path works: hosting, HTTPS, then replace `example.com` with `https://www.swipexthefee.com` on the canonical, Open Graph, and schema URLs. Add `robots.txt` and `sitemap.xml`, GA4 with `booking_click` as the key event, Search Console, then Lighthouse on the live URL. The apex host redirects to `www`.
+4. Homepage canonical, Open Graph, Twitter, and schema URLs use `https://www.swipexthefee.com`. Share image tags are removed until a real image exists. `robots.txt` and `sitemap.xml` are in the repo, and the legal pages have canonical tags. Google Analytics 4 (`G-LDMKLF3QVM`) is on the public pages. `netlify.toml` publishes `site/` and 301s the apex host to `www`. Still to do: create the Netlify site without changing public DNS, set the primary domain to `www` and Force HTTPS, then after DNS mark `booking_click` as the GA4 key event, Search Console, and Lighthouse on the live URL. Confirm the live `/robots.txt` and `/sitemap.xml` after DNS. The apex host redirects to `www`.
 5. Get the first conversations from people SwipeX already knows or can meet locally. Record why they booked or did not. Use that before any headline test, video production, or ads.
 
 **After a working booking path:** the rest of the **Launch Checklist**. Real explainer video, verified testimonials, program-model copy, GBP only if eligible, LocalBusiness / FAQPage schema, and nearby-city pages only with real service proof. Paid ads only after a test booking and GA4 both work.
@@ -557,15 +557,15 @@ Keep hosting aligned with the static-site architecture (HTML/CSS/JS; no server a
 
 Use the lightest reasonable Google tag. Prefer one clearly defined primary conversion (booking / lead request). Event names: see **Analytics**.
 
-- [ ] Create or verify GA4 property
-- [ ] Add GA4 measurement ID to the project
-- [ ] Add Google tag with the lightest reasonable implementation
+- [x] Create or verify GA4 property
+- [x] Add GA4 measurement ID to the project
+- [x] Add Google tag with the lightest reasonable implementation
 - [ ] Verify page views in GA4 Realtime
-- [ ] Define primary conversion event (`booking_click` at launch; `generate_lead` only after a thank-you URL exists)
-- [ ] Track main CTA interaction (`cta_click`)
-- [ ] Track successful booking/lead completion where technically possible (else outbound booking click)
+- [x] Define primary conversion event (`booking_click` at launch; `generate_lead` only after a thank-you URL exists)
+- [x] Track main CTA interaction (`cta_click`)
+- [x] Track successful booking/lead completion where technically possible (else outbound booking click)
 - [ ] Verify events are not firing twice
-- [ ] Document final analytics event names in PROJECT.md **Analytics**
+- [x] Document final analytics event names in PROJECT.md **Analytics**
 
 ### 3. Google Search Console
 
@@ -582,12 +582,12 @@ Use the lightest reasonable Google tag. Prefer one clearly defined primary conve
 
 Important page content is already in HTML (not JS-gated). Preserve that.
 
-- [ ] Create/verify `/robots.txt`
-- [ ] Confirm production is not blocked from crawling
-- [ ] Confirm there is no accidental `noindex`
-- [ ] Create/verify `/sitemap.xml` (homepage, `/privacy.html`, and `/terms.html`, on the production host)
-- [ ] Include canonical URL on the homepage
-- [ ] Confirm canonical points to the production URL
+- [x] Create/verify `/robots.txt`
+- [x] Confirm production is not blocked from crawling
+- [x] Confirm there is no accidental `noindex`
+- [x] Create/verify `/sitemap.xml` (homepage, `/privacy.html`, and `/terms.html`, on the production host)
+- [x] Include canonical URL on the homepage
+- [x] Confirm canonical points to the production URL
 - [ ] Ensure all important content remains available in HTML
 - [ ] Ensure important content does not depend on JavaScript to become crawlable
 - [ ] Confirm internal links are crawlable `<a>` links
@@ -599,19 +599,19 @@ Important page content is already in HTML (not JS-gated). Preserve that.
 Preserve the San Bernardino local commercial strategy (geo in eyebrow/subhead/meta/FAQ; H1 stays cost-focused). Do not keyword-stuff. No extra city pages for launch.
 
 - [ ] Unique page title (SwipeX + San Bernardino + cost review / merchant services)
-- [ ] Useful meta description
+- [x] Useful meta description
 - [ ] One clear H1
 - [ ] Logical H2/H3 hierarchy
 - [ ] Descriptive link text
 - [ ] Useful image alt text
-- [ ] Canonical tag (production URL)
+- [x] Canonical tag (production URL)
 - [ ] Open Graph title
-- [ ] Open Graph description
-- [ ] Open Graph image (local headline; asset still needed)
+- [x] Open Graph description
+- [x] Open Graph image removed until a real share image exists
 - [ ] Favicon (SVG favicon already in assets; confirm live)
 - [ ] Mobile viewport configured
 - [ ] Page language set correctly
-- [ ] Production URL used in metadata (replace placeholders)
+- [x] Production URL used in metadata (replace placeholders)
 
 ### 6. Local SEO
 
@@ -633,12 +633,12 @@ Aligns with existing **Local SEO** / **Geographic Strategy**. No multi-city door
 
 ### 7. Privacy and Basic Legal Pages
 
-`privacy.html` and `terms.html` describe the current website. They are not a lawyer-reviewed compliance claim. No public phone or email is listed. Google Analytics is not on the site. Update `privacy.html` before adding that tag. Canonical URLs wait for the production domain. Do not claim legal compliance without review.
+`privacy.html` and `terms.html` describe the current website. They are not a lawyer-reviewed compliance claim. No public phone or email is listed. Google Analytics 4 (`G-LDMKLF3QVM`) is on the public pages, and `privacy.html` discloses it. Canonical URLs use the production domain. Do not claim legal compliance without review.
 
 - [x] Privacy Policy content written for the current site (`privacy.html`)
 - [x] Terms content written for the current site (`terms.html`)
 - [x] Legal pages omit phone and email, matching the decision to publish neither
-- [ ] Update the privacy page when GA4 is added, before the tag goes live
+- [x] Update the privacy page when GA4 is added, before the tag goes live
 - [ ] Confirm whether cookie consent is required for the actual GA4-only implementation (jurisdiction-dependent; do not assume)
 - [ ] Lawyer review before treating these pages as a compliance claim
 - [x] Booking path explains that Calendly collects what the merchant submits there. The on-site calculator is not submitted.
@@ -726,7 +726,7 @@ Preserve existing patterns: skip link, landmarks, one H1, native controls, `:foc
 ### 12. Final Pre-Launch Review
 
 - [x] Remove unfinished public content (placeholder proof, dead video, pending FAQ notes). Keep deferred ideas in PROJECT.md, not on the live page.
-- [ ] Remove test URLs
+- [x] Remove test URLs
 - [x] Remove dummy email/phone information
 - [x] Remove placeholder testimonials from the public page (labeling them is not enough). The Socorrito Store quote is the only proof card.
 - [ ] Confirm internal notes are absent from public HTML (“Answer pending”, “Placeholder testimonial”, developer video copy)
@@ -735,10 +735,10 @@ Preserve existing patterns: skip link, landmarks, one H1, native controls, `:foc
 - [ ] Search site copy for em dashes
 - [ ] Confirm San Bernardino targeting is natural (not stuffed)
 - [ ] Confirm logo/favicon are production-ready
-- [ ] Confirm social sharing metadata
-- [ ] Confirm production canonical URL
-- [ ] Confirm `robots.txt`
-- [ ] Confirm `sitemap.xml`
+- [x] Confirm social sharing metadata
+- [x] Confirm production canonical URL
+- [x] Confirm `robots.txt`
+- [x] Confirm `sitemap.xml`
 - [ ] Confirm analytics
 - [ ] Confirm Search Console
 
@@ -810,7 +810,7 @@ Preserve existing patterns: skip link, landmarks, one H1, native controls, `:foc
 | Qualification lives on the scheduler | A few questions there. No long on-site form in v1. |
 | No public phone or email | Launch decision, 2026-10-14. Do not publish either. One primary action: the processing-cost review. |
 | “No-obligation” means no duty to switch | Decision 2026-11-12. It does not mean the review is free. The hero line stays “No-obligation statement review.” The booking band keeps “No pressure to switch.” Do not add “free.” |
-| Privacy and Terms describe this website | Decision 2026-11-12. `privacy.html` and `terms.html` stay linked. They state what the page does now: no on-site form, no site cookies, no analytics, booking details collected on Calendly. No phone and no email. The preferred origin is `https://www.swipexthefee.com`. Canonical tags in the HTML still use `example.com` until they are replaced. Update the privacy page before GA4. A lawyer has not reviewed them. |
+| Privacy and Terms describe this website | Decision 2026-11-12. `privacy.html` and `terms.html` stay linked. They state what the page does now: no on-site form, booking details collected on Calendly, and Google Analytics 4 (`G-LDMKLF3QVM`) counting visits and review clicks. Calculator amounts are not sent. No phone and no email. The preferred origin is `https://www.swipexthefee.com`. Canonical tags on the homepage, `privacy.html`, and `terms.html` use that origin. `robots.txt` allows crawling and points at `sitemap.xml`. The sitemap lists those three pages. A lawyer has not reviewed them. |
 | No dead hero video at launch | A play button that does not load a player is a dead end. The hero is a static review card. |
 | Merchant chooses the card device | Decision 2026-11-13. The review card says a countertop terminal, a handheld, or a register setup. No brand, no “free equipment,” and no price until those are confirmed. |
 | No published dollar cutoff for bringing a statement | Decision 2026-11-13. Book with nothing in hand. A statement is for monthly card sales high enough that it shows what they pay. Processor underwriting cutoffs disagree ($150,000, $250,000, or “already accepting cards”), so the page does not name one as a SwipeX rule. |
@@ -825,9 +825,9 @@ Ranked by impact on whether a business owner will book a qualified review.
 
 **Decided (2026-11-12):** “No-obligation” means no duty to switch. It does not mean the review is free. The hero trust line stays. Do not call the review free.
 
-**Decided (2026-11-12):** `privacy.html` and `terms.html` describe the current website and stay linked from the footer. They omit phone, email, and analytics. Update the privacy page before GA4. A lawyer has not reviewed them.
+**Decided (2026-11-12):** `privacy.html` and `terms.html` describe the current website and stay linked from the footer. They omit phone and email. Google Analytics 4 is disclosed on the privacy page (2026-11-18). A lawyer has not reviewed them.
 
-**Decided (2026-11-13):** the production origin is `https://www.swipexthefee.com`. The apex, `https://swipexthefee.com`, redirects to `www`. Canonical, Open Graph, and schema URLs in the HTML still use `example.com` until they are replaced. Do not point public DNS at the site until the launch checks pass.
+**Decided (2026-11-13):** the production origin is `https://www.swipexthefee.com`. The apex, `https://swipexthefee.com`, redirects to `www`. Homepage canonical, Open Graph, Twitter, and schema URLs use that origin (2026-11-18). `privacy.html` and `terms.html` have canonical tags on that origin. `robots.txt` allows crawling and points at `sitemap.xml`, which lists those three pages. Share image tags are removed until a real image exists. Do not point public DNS at the site until the launch checks pass.
 
 **Highest impact (blocks a real lead):**
 
@@ -838,8 +838,8 @@ Ranked by impact on whether a business owner will book a qualified review.
 
 **Needed before public launch:**
 
-- Production origin: `https://www.swipexthefee.com` (2026-11-13). The apex redirects to `www`. Canonical tags in the HTML still use `example.com` until they are replaced. Do not point public DNS until the launch checks pass.
-- GA4 measurement ID / property? Update `privacy.html` before that tag goes live.
+- Production origin: `https://www.swipexthefee.com` (2026-11-13). The apex redirects to `www`. Canonical tags on the homepage, privacy page, and terms page use that origin. `robots.txt` and `sitemap.xml` are in the repo. Do not point public DNS until the launch checks pass.
+- GA4 measurement ID: `G-LDMKLF3QVM` (2026-11-18). `privacy.html` discloses the tag. Realtime and the `booking_click` key event are still open.
 - Google Search Console property and ownership method (Domain vs URL-prefix)?
 - Does the GA4-only setup require a cookie consent banner for the jurisdictions you serve?
 
@@ -865,6 +865,10 @@ Ranked by impact on whether a business owner will book a qualified review.
 
 ## Change Log
 
+- **2026-11-18** - Netlify publishes `site/`, built by `npm run build`. That folder is the public HTML, crawl files, compressed CSS, `js/main.js`, and the logo and favicon files. `404.html` is included and uses `noindex`. `netlify.toml` 301s `swipexthefee.com` to `https://www.swipexthefee.com`. The Netlify site and public DNS are not connected yet.
+- **2026-11-18** - Added Google Analytics 4 (`G-LDMKLF3QVM`) on the homepage, privacy page, and terms page. Events: `booking_click`, `cta_click` for “Use my own numbers,” and one `calculator_use` per page view. No `video_play`, no `generate_lead`, and no consent banner. `privacy.html` discloses the tag.
+- **2026-11-18** - Added `robots.txt` and `sitemap.xml` for `https://www.swipexthefee.com`. Sitemap lists the homepage, `privacy.html`, and `terms.html`. Those legal pages now have matching canonical tags. Public HTML has no `noindex`.
+- **2026-11-18** - Homepage canonical, Open Graph, Twitter, and schema URLs use `https://www.swipexthefee.com`. Meta description names the 30-minute statement review. Share image tags removed because no image exists. Twitter card is `summary`.
 - **2026-11-13** - Removed the two temporary proof cards and the homepage footer phone and email. The Socorrito Store quote is the only proof card. Preferred origin is `https://www.swipexthefee.com`. Canonical tags still use `example.com`.
 - **2026-11-13** - Pointed every homepage review CTA at `https://calendly.com/vicbarrios24/30min` in the same tab. “Use my own numbers” still scrolls to `#savings`.
 - **2026-11-13** - Hero keeps one booking button, under the headline. The review card header is a solid deep teal.

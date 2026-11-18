@@ -1,6 +1,6 @@
 /**
  * Swipex landing page — minimal progressive enhancements
- * Handles: mobile nav, video facade, savings calculator, year stamp
+ * Handles: mobile nav, savings calculator, year stamp, analytics events
  */
 
 (function () {
@@ -96,6 +96,13 @@
     if (!salesInput || !rateInput || !monthlyOut || !annualOut) return;
 
     var edited = false;
+    var calculatorTracked = false;
+
+    function noteCalculatorUse() {
+      if (calculatorTracked || !annualOut.textContent) return;
+      calculatorTracked = true;
+      trackEvent("calculator_use");
+    }
 
     function parseAmount(value) {
       var cleaned = String(value).replace(/,/g, "").trim();
@@ -161,15 +168,40 @@
     salesInput.addEventListener("input", function () {
       markEdited();
       recalculate();
+      noteCalculatorUse();
     });
 
     rateInput.addEventListener("input", function () {
       markEdited();
       recalculate();
+      noteCalculatorUse();
     });
 
     salesInput.value = formatSales(parseAmount(salesInput.value));
     recalculate();
+  }
+
+  // --- Analytics events (GA4). No video_play or generate_lead. ---
+  function trackEvent(name, params) {
+    if (typeof window.gtag !== "function") return;
+    if (params) window.gtag("event", name, params);
+    else window.gtag("event", name);
+  }
+
+  function initAnalytics() {
+    document.addEventListener("click", function (event) {
+      if (!event.target || !event.target.closest) return;
+
+      var booking = event.target.closest("[data-booking-url]");
+      if (booking) {
+        trackEvent("booking_click");
+        return;
+      }
+
+      var cta = event.target.closest("[data-cta]");
+      if (!cta) return;
+      trackEvent("cta_click", { location: cta.getAttribute("data-cta") || "problem" });
+    });
   }
 
   // --- Footer year ---
@@ -183,6 +215,7 @@
     initNav();
     // Hero is a static review card until a real video ID exists.
     initCalculator();
+    initAnalytics();
     initYear();
   }
 

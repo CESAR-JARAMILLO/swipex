@@ -33,19 +33,27 @@ Then open the printed local URL.
 
 ## Production build
 
-Generate compressed CSS:
+Compile compressed CSS and copy the public files into `site/`:
 
 ```bash
 npm run build
 ```
 
-Ship `index.html`, `css/styles.css`, `js/main.js`, and `assets/`.
+Netlify publishes `site/`, not the repo root. That folder has `index.html`, `privacy.html`, `terms.html`, `404.html`, `robots.txt`, `sitemap.xml`, `css/styles.css`, `js/main.js`, and the logo and favicon files the pages request. It does not include `PROJECT.md`, `scss/`, or `assets/images/swipex-logo-source.jpg`.
+
+`netlify.toml` sends `swipexthefee.com` to `https://www.swipexthefee.com`. In the Netlify UI, set the primary domain to `www` and turn on Force HTTPS. Do not point public DNS at the site until the launch checks pass.
 
 ## File structure
 
 ```
 /
 ├── index.html
+├── privacy.html
+├── terms.html
+├── 404.html
+├── robots.txt
+├── sitemap.xml
+├── netlify.toml
 ├── package.json
 ├── README.md
 ├── PROJECT.md

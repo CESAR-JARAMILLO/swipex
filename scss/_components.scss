@@ -677,10 +677,15 @@
   text-align: center;
 }
 
-// Social proof — one verified quote
+// Social proof — two merchant quotes
 .proof-grid {
   display: grid;
   gap: 0.875rem;
+
+  @media (min-width: $bp-md) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: stretch;
+  }
 }
 
 .proof-card {
@@ -714,11 +719,9 @@
 
 .proof-card__mark {
   display: block;
-  height: 1.6rem;
-  margin-bottom: 0.35rem;
-  overflow: hidden;
-  font-size: 4.25rem;
-  line-height: 0.85;
+  margin-bottom: 0.15rem;
+  font-size: 1.75rem;
+  line-height: 1;
   font-weight: 700;
   color: $color-primary;
 }

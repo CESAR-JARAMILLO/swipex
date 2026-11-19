@@ -136,7 +136,7 @@ Rewrite anything that fails this review. Keep conversion intent, SEO meaning, an
 4. Savings calculator
 5. How it works (4 steps; heading “What the Review Looks Like”; nav label stays “How It Works”)
 6. Who it’s for (seven business types, inline icons, no booking button)
-7. Social proof (Socorrito Store quote only, no photo)
+7. Social proof (Mendoza's Feed and Supply and Barber & Beauty Salon, both San Bernardino, no photos)
 8. Booking / consultation CTA
 9. FAQ (four answered questions, centered column; unfinished items stay in this file)
 10. Final CTA (“Ready for the 30-minute review?”; button opens the scheduler)
@@ -226,14 +226,16 @@ Each type uses a small inline stroke icon in the button teal. No icon font, no i
 
 ## Social proof
 
-One quote after the business types, then the booking section. No photo. No second button.
+Two quotes after the business types, then the booking section. No photo. No second button. No review schema.
 
-**Live:**
-- H2: “From Local Merchants”
-- Intro: “A San Bernardino store, in their own words.”
-- Real quote, with quotation marks: “SwipeX changed how we take card payments. We've saved thousands in fees, and support has been there when we needed it.” Attribution: Socorrito Store, San Bernardino, CA.
+**Live (client-supplied 2026-11-19, shortened 2026-11-19 so the result is the first line):**
+- H2: “From Merchants Who Switched”
+- Intro: “A San Bernardino feed store and salon, in their own words.”
+- Mendoza's Feed and Supply. Label: “Feed and supply, San Bernardino, CA.” The quote opens with what they were told being what they got, then no hidden fees, Victor following up in person, reasonable rates, and a choice of POS setup.
+- Barber & Beauty Salon. Label: “Salon, San Bernardino, CA.” The quote opens with the cash discount program keeping more of each card sale, then Victor setting up the POS and being available when they need help.
+- The quotation mark is a small accent. It does not sit above the quote as a large clipped glyph.
 
-Do not add another card until it has a business name, city, and an approved result. Do not write a fake business or a fake quote. Do not add review schema. The Socorrito quote stays public unless that approval is withdrawn.
+The cash discount line and the “no hidden fees” line stay inside those quotes. They are not a sitewide offer, a rate, or a savings guarantee. Do not add either claim to the hero, FAQ, or buttons. Do not add a dollar amount or a star rating. Do not write a fake business or a fake quote. Do not add review schema. The Socorrito Store quote was removed at the client's request.
 
 ## FAQ
 
@@ -344,7 +346,7 @@ All theme controls live in `scss/_variables.scss`. Significant visual changes sh
 
 **Citation opportunities (after NAP verified):** Apple Business Connect, Bing Places, relevant CA / Inland Empire directories, chamber listings, industry associations—consistent NAP only.
 
-**Local testimonial strategy:** Prioritize verified quotes with business name (or initials), industry, city (San Bernardino or served city), and approved result. The only live quote is Socorrito Store, San Bernardino, CA.
+**Local testimonial strategy:** Prioritize verified quotes with business name (or initials), industry, city (San Bernardino or served city), and approved result. The live quotes are Mendoza's Feed and Supply and Barber & Beauty Salon, both in San Bernardino, CA.
 
 **Public page rule (2026-10-06):** Do not leave placeholder testimonials or unanswered FAQ items in indexable HTML. Labeled fake proof and “Answer pending” notes are what Google and answer engines can quote. Keep those notes in this file until the facts exist.
 
@@ -518,7 +520,7 @@ If `IMPLEMENTATION.md` is missing, regenerate it from this file, the **Launch Ch
 
 **Pre-launch lead path.** The landing page strategy is in place: cost-focused hero, cost-only calculator, San Bernardino positioning, lightweight HTML/SCSS/JS. It cannot generate a qualified lead yet.
 
-The decided scheduler URL is `https://calendly.com/vicbarrios24/30min` for every review CTA. `index.html`, `privacy.html`, and `terms.html` use that URL in the same tab. The homepage footer has no phone and no email. The legal pages do not either. The hero play button is gone. The right side of the hero is a static review card. The proof section is the Socorrito Store quote only. The photo is not on the page. Unanswered FAQ items are off the page. “No-obligation” means no duty to switch, not a free review. The hero trust line stays. The preferred origin is `https://www.swipexthefee.com`. Homepage canonical, Open Graph, Twitter, and schema URLs use that origin. Share image tags are removed. The meta description names the 30-minute statement review. `privacy.html` and `terms.html` have canonical tags on that origin. `robots.txt` allows `/` and points at `https://www.swipexthefee.com/sitemap.xml`. The sitemap lists the homepage, privacy page, and terms page. Google Analytics 4 (`G-LDMKLF3QVM`) is on those pages. Events in code: `page_view`, `booking_click`, `cta_click`, and `calculator_use`.
+The decided scheduler URL is `https://calendly.com/vicbarrios24/30min` for every review CTA. `index.html`, `privacy.html`, and `terms.html` use that URL in the same tab. The homepage footer has no phone and no email. The legal pages do not either. The hero play button is gone. The right side of the hero is a static review card. The proof section is Mendoza's Feed and Supply and Barber & Beauty Salon, both in San Bernardino. Neither card has a photo. The Socorrito Store quote is off the page. Unanswered FAQ items are off the page. “No-obligation” means no duty to switch, not a free review. The hero trust line stays. The preferred origin is `https://www.swipexthefee.com`. Homepage canonical, Open Graph, Twitter, and schema URLs use that origin. Share image tags are removed. The meta description names the 30-minute statement review. `privacy.html` and `terms.html` have canonical tags on that origin. `robots.txt` allows `/` and points at `https://www.swipexthefee.com/sitemap.xml`. The sitemap lists the homepage, privacy page, and terms page. Google Analytics 4 (`G-LDMKLF3QVM`) is on those pages. Events in code: `page_view`, `booking_click`, `cta_click`, and `calculator_use`.
 
 Clear that public page and connect a real scheduler before domain, GA4, and Search Console. Program-model claims stay deferred. The 2026-10-06 audit did not change site code. A 2026-10-14 launch audit also left the site code unchanged and recorded the ordered tasks in local `IMPLEMENTATION.md` when that file is present.
 
@@ -529,7 +531,7 @@ See **CRO Strategy** for the flow, lead-quality rules, and phases. See **Impleme
 Do these first. Later phases are in **CRO Strategy**. Do not expand into multi-city SEO, CRM, ads, or a framework. When `IMPLEMENTATION.md` is present, carry out the launch work from its first relevant unchecked task, and check tasks off there only after verification. The list below stays the permanent sequence.
 
 1. Write down the remaining facts for a real review: who the merchant talks to, and what they receive. Call length is 30 minutes. Phone and email are omitted. “No-obligation” means no duty to switch, not a free review.
-2. Unfinished public content is off the homepage: no placeholder phone or email, no hero video placeholder, and no temporary proof cards. The Socorrito Store quote is the only proof card. `privacy.html` and `terms.html` describe the current website. Unanswered FAQ items are already off the page.
+2. Unfinished public content is off the homepage: no placeholder phone or email, no hero video placeholder, and no temporary proof cards. The live proof cards are Mendoza's Feed and Supply and Barber & Beauty Salon. The Socorrito Store quote is off the page. `privacy.html` and `terms.html` describe the current website. Unanswered FAQ items are already off the page.
 3. The review CTAs now open `https://calendly.com/vicbarrios24/30min` in the same tab: hero, nav, calculator, how it works, the booking band, the final CTA, the sticky bar, and the footer. Confirm the Calendly event asks business type, monthly volume range, city, and statement yes/no. `#book` still explains the review. Complete one real test booking on a phone.
 4. Homepage canonical, Open Graph, Twitter, and schema URLs use `https://www.swipexthefee.com`. Share image tags are removed until a real image exists. `robots.txt` and `sitemap.xml` are in the repo, and the legal pages have canonical tags. Google Analytics 4 (`G-LDMKLF3QVM`) is on the public pages. `netlify.toml` publishes `site/` and 301s the apex host to `www`. Still to do: create the Netlify site without changing public DNS, set the primary domain to `www` and Force HTTPS, then after DNS mark `booking_click` as the GA4 key event, Search Console, and Lighthouse on the live URL. Confirm the live `/robots.txt` and `/sitemap.xml` after DNS. The apex host redirects to `www`.
 5. Get the first conversations from people SwipeX already knows or can meet locally. Record why they booked or did not. Use that before any headline test, video production, or ads.
@@ -728,7 +730,7 @@ Preserve existing patterns: skip link, landmarks, one H1, native controls, `:foc
 - [x] Remove unfinished public content (placeholder proof, dead video, pending FAQ notes). Keep deferred ideas in PROJECT.md, not on the live page.
 - [x] Remove test URLs
 - [x] Remove dummy email/phone information
-- [x] Remove placeholder testimonials from the public page (labeling them is not enough). The Socorrito Store quote is the only proof card.
+- [x] Remove placeholder testimonials from the public page (labeling them is not enough). The live cards are Mendoza's Feed and Supply and Barber & Beauty Salon.
 - [ ] Confirm internal notes are absent from public HTML (“Answer pending”, “Placeholder testimonial”, developer video copy)
 - [ ] Remove unsupported claims (no zero-fee / guaranteed savings / unverified “free”)
 - [ ] Confirm copy follows PROJECT.md **Copywriting Rules**
@@ -758,7 +760,7 @@ Preserve existing patterns: skip link, landmarks, one H1, native controls, `:foc
 ## Backlog
 
 - Pre-launch: replace the hero video facade with a static “what the review covers” card until a real video exists
-- More proof cards only after the next quote has a business name, city, and an approved result, same as Socorrito Store
+- More proof cards only after the next quote has a business name and an approved result. Add a city only when the merchant states one.
 - FAQ items for equipment, card brands, setup time, contracts, pricing, and how the program works, only after each answer is real
 - Scheduler qualifying questions (business type, monthly volume range, city, statement yes/no)
 - Short “what happens on the call” block once length, materials, and the no-switch commitment are confirmed
@@ -785,7 +787,7 @@ Preserve existing patterns: skip link, landmarks, one H1, native controls, `:foc
 | Video facade | Avoid third-party JS/iframe until interaction |
 | System fonts first | Core Web Vitals; brand fonts later if needed |
 | `details`/`summary` FAQ | Accessible, no JS required |
-| One verified quote | Socorrito Store is the only proof card, with no photo. Do not add another card until it has a business name, city, and an approved result. |
+| Two client-supplied quotes | Mendoza's Feed and Supply and Barber & Beauty Salon, both San Bernardino, CA, replace Socorrito Store (2026-11-19). No photos. “No hidden fees,” reasonable rates, and the salon's cash discount program stay inside the quotes. They are not sitewide claims. |
 | Teal primary / green secondary | Trust + AA CTAs; green as accent/savings |
 | Hero = left copy / right proof of the review | Video returns on the right when a real player exists. Until then, a static “what the review covers” card. |
 | Sticky mobile CTA | Social/ad traffic often mobile |
@@ -855,7 +857,7 @@ Ranked by impact on whether a business owner will book a qualified review.
 - Google Business Profile exists / eligible?
 - Typical setup time, equipment needs, contract terms, pricing?
 - Which card brands / payment methods are supported?
-- More San Bernardino / Inland Empire testimonials? Socorrito Store is the first live quote. Do not add another until it has a name, city, and an approved result.
+- More testimonials? The live quotes are Mendoza's Feed and Supply and Barber & Beauty Salon. Do not add another until it has a business name and an approved result. Add a city only when the merchant states one.
 - Explainer video script, length, and host? Video can wait. A dead play button cannot ship.
 - Ad accounts to connect after a test booking and GA4 both work?
 - Official vector logo with exact brand font paths?
@@ -865,6 +867,8 @@ Ranked by impact on whether a business owner will book a qualified review.
 
 ## Change Log
 
+- **2026-11-19** - Shortened both merchant quotes so the result is the first line. Each card labels the business type with San Bernardino. The quotation mark is a small accent.
+- **2026-11-19** - Replaced the Socorrito Store quote with client-supplied quotes from Mendoza's Feed and Supply and Barber & Beauty Salon, both in San Bernardino, CA. Cash discount and “no hidden fees” stay inside the quotes.
 - **2026-11-18** - Netlify publishes `site/`, built by `npm run build`. That folder is the public HTML, crawl files, compressed CSS, `js/main.js`, and the logo and favicon files. `404.html` is included and uses `noindex`. `netlify.toml` 301s `swipexthefee.com` to `https://www.swipexthefee.com`. The Netlify site and public DNS are not connected yet.
 - **2026-11-18** - Added Google Analytics 4 (`G-LDMKLF3QVM`) on the homepage, privacy page, and terms page. Events: `booking_click`, `cta_click` for “Use my own numbers,” and one `calculator_use` per page view. No `video_play`, no `generate_lead`, and no consent banner. `privacy.html` discloses the tag.
 - **2026-11-18** - Added `robots.txt` and `sitemap.xml` for `https://www.swipexthefee.com`. Sitemap lists the homepage, `privacy.html`, and `terms.html`. Those legal pages now have matching canonical tags. Public HTML has no `noindex`.
